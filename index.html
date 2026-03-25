@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISDIESEL | Auxilio Vial para Tractocamiones & Refacciones Diesel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo2.png">
+</head>
+
+<body>
+
+
+   <div id="sis-master-panel" style="position: fixed !important; top: 50%; right: -350px; transform: translateY(-50%); width: 400px; display: flex; align-items: center; z-index: 99999999; transition: all 0.4s ease-in-out; font-family: 'Inter', sans-serif;">
+    
+    <div onclick="toggleSisNow()" style="width: 50px; height: 180px; background: #0056b3; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 15px 0 0 15px; box-shadow: -5px 0 15px rgba(0,0,0,0.5);">
+        <span style="writing-mode: vertical-rl; transform: rotate(180deg); color: white; font-weight: 900; letter-spacing: 2px; font-size: 13px;">¡COTIZA AHORA!</span>
+    </div>
+
+    <div style="width: 350px; background: #0a0a0a; padding: 35px; border-left: 3px solid #0056b3; box-shadow: -10px 0 40px rgba(0,0,0,0.9); color: white; border-radius: 0 10px 10px 0;">
+        <h3 style="margin:0; font-size: 22px; font-weight: 900;">QUICK <span style="color:#0056b3;">QUOTE</span></h3>
+        <p style="font-size:10px; color:#555; margin: 5px 0 25px 0;">CENTRAL DE DESPACHO SISDIESEL</p>
+
+        <div style="margin-bottom:15px;">
+            <label style="color:#0056b3; font-size:11px; font-weight:bold; display:block; margin-bottom:8px;">1. UNIDAD:</label>
+            <select id="u-final" style="width:100%; padding:12px; background:#151515; color:white; border:1px solid #333; border-radius:5px;">
+                <option>Tractocamión Sencillo</option>
+                <option>Tractocamión Full</option>
+                <option>Torton / Rabón</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom:25px;">
+            <label style="color:#0056b3; font-size:11px; font-weight:bold; display:block; margin-bottom:8px;">2. SERVICIO:</label>
+            <select id="s-final" style="width:100%; padding:12px; background:#151515; color:white; border:1px solid #333; border-radius:5px;">
+                <option>Mecánica en Sitio</option>
+                <option>Grúa de Rescate</option>
+                <option>Auxilio Eléctrico</option>
+            </select>
+        </div>
+
+        <button onclick="enviarWaExpress()" style="width:100%; padding:18px; background:#0056b3; color:white; border:none; font-weight:900; border-radius:5px; cursor:pointer; text-transform:uppercase; letter-spacing:1px;">
+            ENVIAR WHATSAPP
+        </button>
+    </div>
+</div>
+
+<script>
+    function toggleSisNow() {
+        var p = document.getElementById('sis-master-panel');
+        // Si el panel está escondido (right: -350px), lo ponemos en 0. Si no, lo escondemos.
+        if (p.style.right === "0px") {
+            p.style.right = "-350px";
+        } else {
+            p.style.right = "0px";
+        }
+    }
+
+    // ESTA ES LA FUNCIÓN QUE DEBES MODIFICAR PARA EL WHATSAPP
+function enviarWaExpress() {
+    // 1. Capturamos lo que el usuario eligió en los selectores
+    var unidad = document.getElementById('u-final').value;
+    var servicio = document.getElementById('s-final').value;
+    
+    // 2. Tu número de teléfono (Formato internacional sin el +)
+    var telefono = "525545992217"; 
+
+    // 3. Armamos el mensaje (El %0A es para saltos de línea y el * es para negritas)
+    var mensaje = "*SOLICITUD DE AUXILIO - SISDIESEL*%0A" +
+                  "------------------------------%0A" +
+                  "*Unidad:* " + unidad + "%0A" +
+                  "*Falla/Servicio:* " + servicio + "%0A" +
+                  "------------------------------%0A" +
+                  "Solicito presupuesto y tiempo de arribo.";
+
+    // 4. Abrimos la ventana de WhatsApp con el mensaje listo
+    window.open("https://wa.me/" + telefono + "?text=" + mensaje, '_blank');
+}
+</script>
+
+
+    <header class="header-premium">
+    <nav class="sis-nav-universal">
+    <div class="sis-nav-container">
+        <a href="#inicio" class="sis-logo-link">
+            <img src="img/logo2.png" alt="SISDIESEL">
+        </a>
+
+        <div class="sis-menu-links">
+            <a href="#inicio"><i class="fas fa-home"></i> <span>INICIO</span></a>
+            <a href="#nosotros"><i class="fas fa-user-shield"></i> <span>NOSOTROS</span></a>
+            <a href="#escaneo-sis" class="sis-link-resaltado"><i class="fas fa-microchip"></i> <span>ESCÁNER</span></a>
+            <a href="#servicios"><i class="fas fa-tools"></i> <span>SERVICIOS</span></a>
+            <a href="#cobertura"><i class="fas fa-map-marker-alt"></i> <span>COBERTURA</span></a>
+            <a href="#contacto"><i class="fas fa-phone"></i> <span>CONTACTO</span></a>
+        </div>
+    </div>
+</nav>
+    </nav>
+<a href="tel:525545992217" class="btn-auxilio-header">
+    <span class="luz-alerta"></span>
+    AUXILIO INMEDIATO
+</a>
+   
+</header>
+
+   <section id="inicio" class="hero-imagen-premium">
+        
+        <div class="overlay-hero-imagen"></div>
+        
+        <div class="hero-content">
+            <span class="tag-live">Servicio 24/7 Activo</span>
+            
+            <h1 class="titulo-industrial">RESCATE<br><span>PESADO</span></h1>
+            
+            <p class="descripcion-hero">Logística de auxilio vial blindada para tractocamiones. Potencia y precisión mecánica donde la necesites, al instante. Ademas somos especialistas en mantenimiento, reparación y refacciones diesel. ¡Nuestro compromiso es brindar un servicio de calidad!</p>
+            
+            <a href="https://wa.me/525545992217?text=Necesito%20auxilio%20vial%20inmediata%20para%20un%20tractocamión" 
+               class="btn-pulso" 
+               target="_blank">
+               SOLICITAR ASISTENCIA NOW
+            </a>
+        </div>
+        
+        <div class="scroll-down"></div>
+    </section>
+    <section id="cotizador" class="seccion-cotizador">
+    <div class="contenedor-cotizador">
+        <div class="texto-cotizador">
+            <span class="tag-promo">Ahorra Tiempo</span>
+            <h2>COTIZADOR <br><span>INSTANTÁNEO</span></h2>
+            <p>Selecciona tu tipo de unidad y falla para recibir un presupuesto aproximado en menos de 5 minutos.</p>
+        </div>
+
+        <div class="box-cotizador">
+            <form id="quote-form">
+                <div class="paso-cotiza">
+                    <label>1. Tipo de Unidad:</label>
+                    <select id="unidad" required>
+                        <option value="Tracto Sencillo">Tractocamión Sencillo</option>
+                        <option value="Tracto Full">Tractocamión Full (Doble)</option>
+                        <option value="Torton">Torton / Rabón</option>
+                        <option value="Autobús">Autobús / Pasaje</option>
+                    </select>
+                </div>
+
+                <div class="paso-cotiza">
+                    <label>2. Tipo de Servicio:</label>
+                    <select id="servicio-tipo" required>
+                        <option value="Mecánica">Mecánica en Sitio</option>
+                        <option value="Grúa">Servicio de Grúa (Arrastre)</option>
+                        <option value="Eléctrico">Falla Eléctrica / Baterías</option>
+                        <option value="Neumático">Llantas / Aire</option>
+                    </select>
+                </div>
+
+                <button type="button" onclick="enviarCotizacion()" class="btn-cotizar">
+                    SOLICITAR PRESUPUESTO VIA WHATSAPP
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+ <section id="cobertura" class="cobertura-nodos">
+        <div class="contenedor-red">
+            
+            <div class="info-cobertura">
+                <span class="etiqueta-red">Red de Respuesta</span>
+                <h2>COBERTURA <br><span>NACIONAL INFALIBLE</span></h2>
+                <p>Nuestras unidades están ubicadas estratégicamente para llegar a ti en tiempo récord en los principales corredores industriales.</p>
+                <div class="glosario-nodos">
+                    <span class="pulso-glosario"></span> Disponible en Sitio
+                </div>
+            </div>
+
+            <div class="panel-nodos">
+                
+                <div class="nodo-estado">
+                    <div class="luz-estado"></div>
+                    <div class="detalles-estado">
+                        <h5>Norte</h5>
+                        <h4>NUEVO LEÓN</h4>
+                        <p>Taller Móvil Pesado 24/7</p>
+                    </div>
+                </div>
+
+                <div class="nodo-estado">
+                    <div class="luz-estado"></div>
+                    <div class="detalles-estado">
+                        <h5>Centro</h5>
+                        <h4>QUERÉTARO</h4>
+                        <p>Corredor Bajío - Scanner</p>
+                    </div>
+                </div>
+
+                <div class="nodo-estado destacado">
+                    <div class="luz-estado"></div>
+                    <div class="detalles-estado">
+                        <h5>Metrópoli</h5>
+                        <h4>CDMX & EDOMEX</h4>
+                        <p>Auxilio Inmediato & Grúas</p>
+                    </div>
+                </div>
+
+                <div class="nodo-estado">
+                    <div class="luz-estado"></div>
+                    <div class="detalles-estado">
+                        <h5>Puertos</h5>
+                        <h4>VERACRUZ</h4>
+                        <p>Zona Portuaria - Grúas de Rescate</p>
+                    </div>
+                </div>
+
+                <div class="nodo-estado">
+                    <div class="luz-estado"></div>
+                    <div class="detalles-estado">
+                        <h5>Occidente</h5>
+                        <h4>JALISCO</h4>
+                        <p>Scanner Diésel & Marchas</p>
+                    </div>
+                </div>
+
+                <div class="nodo-estado">
+                    <div class="luz-estado"></div>
+                    <div class="detalles-estado">
+                        <h5>Frontera</h5>
+                        <h4>BAJA CALIFORNIA</h4>
+                        <p>Tijuana Cross Border - Mecánica</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>    <section id="nosotros" class="sobre-nosotros">
+        <div class="contenedor-sobre">
+            <div class="imagen-sobre">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1000" alt="Mecánico trabajando">
+                <div class="experiencia-badge">
+                    <span class="numero">15+</span>
+                    <span class="texto">Años de Experiencia</span>
+                </div>
+            </div>
+
+            <div class="texto-sobre">
+                <span class="subtitulo">Nuestra Trayectoria</span>
+                <h2>LÍDERES EN LOGÍSTICA DE RESCATE PESADO</h2>
+                <p>Es <strong>SisDieselParts</strong>, una empresa 100% mexicana con personal altamente capacitado, lo que nos permite estar posicionados en el mercado de autotransporte nacional; ofrecemos servicios integrales de mantenimiento, reparación y venta de refacciones Diesel</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h4>24/7</h4>
+                        <p>Disponibilidad</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>40 min</h4>
+                        <p>Respuesta</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Cobertura</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="stats-sisdiesel" style="background: #050505; padding: 80px 20px; color: white; font-family: 'Inter', sans-serif;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 40px; text-align: center;">
+        
+        <div style="flex: 1; min-width: 200px;">
+            <i class="fas fa-truck-pickup" style="color: #0056b3; font-size: 30px; margin-bottom: 15px;"></i>
+            <h2 class="contador" data-target="2500" style="font-size: 50px; font-weight: 900; margin: 0; color: #fff;">0</h2>
+            <p style="color: #666; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Rescates Finalizados</p>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+            <i class="fas fa-tools" style="color: #0056b3; font-size: 30px; margin-bottom: 15px;"></i>
+            <h2 class="contador" data-target="98" style="font-size: 50px; font-weight: 900; margin: 0; color: #fff;">0</h2>
+            <p style="color: #666; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">% Eficiencia Mecánica</p>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+            <i class="fas fa-clock" style="color: #0056b3; font-size: 30px; margin-bottom: 15px;"></i>
+            <h2 class="contador" data-target="30" style="font-size: 50px; font-weight: 900; margin: 0; color: #fff;">0</h2>
+            <p style="color: #666; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Minutos tiempo de arribo</p>
+        </div>
+
+    </div>
+</section>
+    <section id="servicios" class="servicios-modernos">
+        <div class="contenedor-titulos">
+            <span class="subtitulo-seccion">Nuestras Soluciones</span>
+            <h2 class="titulo-principal">ESPECIALISTAS EN <br><span>EQUIPO PESADO</span></h2>
+        </div>
+
+        <div class="grid-servicios-premium">
+
+    <div class="tarjeta-servicio">
+        <div class="icono-flotante">01</div>
+        <div class="contenido-servicio">
+            <h3>Mecánica Diésel</h3>
+            <p>Reparación de motores, sistemas de inyección y turbos en el lugar del incidente.</p>
+            <ul class="lista-check">
+                <li>Scanner profesional</li>
+                <li>Ajuste de frenos</li>
+                <li>Sistemas de aire</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tarjeta-servicio destacada"> <div class="icono-flotante">02</div>
+        <div class="contenido-servicio">
+            <h3>Grúas de Rescate</h3>
+            <p>Remolque de alta capacidad para tractocamiones con o sin carga (Full o Sencillo).</p>
+            <ul class="lista-check">
+                <li>Underlift pesado</li>
+                <li>Rescate en barrancos</li>
+                <li>Traslado nacional</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tarjeta-servicio">
+        <div class="icono-flotante">03</div>
+        <div class="contenido-servicio">
+            <h3>Auxilio Eléctrico</h3>
+            <p>Soluciones inmediatas para fallas de encendido, baterías y alternadores.</p>
+            <ul class="lista-check">
+                <li>Paso de corriente 24V</li>
+                <li>Venta de baterías</li>
+                <li>Marchas y alternadores</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tarjeta-servicio">
+        <div class="icono-flotante">04</div>
+        <div class="contenido-servicio">
+            <h3>Abastecimiento y Distribución</h3>
+            <p>Refacciones críticas y partes de colisión con estándares de equipo original (OEM).</p>
+            <ul class="lista-check">
+                <li>Marcas líderes y de intercambio</li>
+                <li>Tractopartes de colisión</li>
+                <li>Suministro preventivo y correctivo</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tarjeta-servicio destacados-remanu"> <div class="icono-flotante">05</div>
+        <div class="contenido-servicio">
+            <h3>Remanufactura y Reconstrucción</h3>
+            <p>Recuperación de componentes críticos ECM y Common Rail con precisión de ingeniería.</p>
+            <ul class="lista-check">
+                <li>Computadoras ECM y Arneses</li>
+                <li>Inyectores y Common Rail</li>
+                <li>Marchas, alternadores y rectificación</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tarjeta-servicio">
+        <div class="icono-flotante">06</div>
+        <div class="contenido-servicio">
+            <h3>Lavado y Sanitización</h3>
+            <p>Desinfección profunda COVID-19 y estética para equipo de transporte pesado.</p>
+            <ul class="lista-check">
+                <li>Sanitización de cabinas CMT</li>
+                <li>Desinfección de puntos de contacto</li>
+                <li>Lavado de chasis y carrocería</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+    </section>
+   <section id="escaneo-sis" style="background: #0a0a0a; padding: 80px 20px; font-family: 'Inter', sans-serif; color: white; text-align: center;">
+    <h2 style="font-weight: 900; font-size: 32px; margin-bottom: 10px;">ESCÁNER DE <span style="color: #0056b3;">FALLAS PREVIO</span></h2>
+    <p style="color: #666; margin-bottom: 50px; font-size: 14px;">Selecciona el síntoma principal de tu unidad para prioridad de despacho.</p>
+    <p style="color: #666; margin-bottom: 50px; font-size: 14px;">No te arriesgues a diagnósticos erróneos en carretera. Identifica tu síntoma y recibe soporte especializado de inmediato.</p>
+
+    <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+        
+        <div class="falla-card" onclick="seleccionarFalla('Humo Inusual (Blanco/Negro)', 'Posible falla en Inyectores o Turbo')" style="background: #111; padding: 30px; border: 1px solid #222; border-radius: 10px; cursor: pointer; transition: 0.3s;">
+            <i class="fas fa-smog" style="font-size: 40px; color: #0056b3; margin-bottom: 15px;"></i>
+            <h4 style="margin: 0; font-size: 16px;">HUMO INUSUAL</h4>
+        </div>
+
+        <div class="falla-card" onclick="seleccionarFalla('Pérdida de Potencia', 'Posible falla en Sistema de Combustible o Filtros')" style="background: #111; padding: 30px; border: 1px solid #222; border-radius: 10px; cursor: pointer; transition: 0.3s;">
+            <i class="fas fa-tachometer-alt-slow" style="font-size: 40px; color: #0056b3; margin-bottom: 15px;"></i>
+            <h4 style="margin: 0; font-size: 16px;">PÉRDIDA DE PODER</h4>
+        </div>
+
+        <div class="falla-card" onclick="seleccionarFalla('Ruido en Motor / Golpeteo', 'Prioridad Alta: Posible falla mecánica interna')" style="background: #111; padding: 30px; border: 1px solid #222; border-radius: 10px; cursor: pointer; transition: 0.3s;">
+            <i class="fas fa-volume-up" style="font-size: 40px; color: #0056b3; margin-bottom: 15px;"></i>
+            <h4 style="margin: 0; font-size: 16px;">RUIDO EXTRAÑO</h4>
+        </div>
+
+        <div class="falla-card" onclick="seleccionarFalla('Falla Eléctrica / Luces', 'Posible falla en Alternador o Marcha')" style="background: #111; padding: 30px; border: 1px solid #222; border-radius: 10px; cursor: pointer; transition: 0.3s;">
+            <i class="fas fa-bolt" style="font-size: 40px; color: #0056b3; margin-bottom: 15px;"></i>
+            <h4 style="margin: 0; font-size: 16px;">SISTEMA ELÉCTRICO</h4>
+        </div>
+    </div>
+
+    <div id="resultado-escaneo" style="display: none; margin-top: 50px; background: #0056b3; padding: 30px; border-radius: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <h3 id="txt-diagnostico" style="margin: 0; font-weight: 900;"></h3>
+        <p id="txt-sintoma" style="font-size: 14px; margin: 10px 0 20px 0; opacity: 0.9;"></p>
+        <button onclick="enviarDiagnosticoWA()" style="background: white; color: #0056b3; border: none; padding: 15px 30px; font-weight: 900; border-radius: 5px; cursor: pointer; text-transform: uppercase;">Solicitar Técnico Especializado</button>
+    </div>
+</section>
+
+    <section class="galeria-cinematica">
+    <div class="contenedor-titulos-galeria">
+        <h2 class="titulo-moderno">CASOS DE <span>ÉXITO</span></h2>
+    </div>
+
+    <div class="slider-wrapper">
+        <button class="nav-galeria prev" onclick="moverSlider(-1)">❮</button>
+        
+        <div class="slider-container" id="sliderSisDiesel">
+            <div class="card-expediente">
+                <img src="img/galeria6.png" alt="Rescate">
+                <div class="info-expediente">
+                    <span class="tag-categoria">RESCATE</span>
+                    <h4>Personal Capacitado</h4>
+                </div>
+            </div>
+
+            <div class="card-expediente activa">
+                <img src="img/galeria4.png" alt="Motor">
+                <div class="info-expediente">
+                    <span class="tag-categoria">MECÁNICA</span>
+                    <h4>Ajuste de Motor</h4>
+                </div>
+            </div>
+
+            <div class="card-expediente">
+                <img src="img/galeria3.png" alt="Software">
+                <div class="info-expediente">
+                    <span class="tag-categoria">MECANICA</span>
+                    <h4>Revision puntos Seguridad</h4>
+                </div>
+            </div>
+            <div class="card-expediente">
+                <img src="img/galeria1.png" alt="Software">
+                <div class="info-expediente">
+                    <span class="tag-categoria">MECANICA</span>
+                    <h4>Mantenimiento de unidades</h4>
+                </div>
+            </div>
+            <div class="card-expediente">
+                <img src="img/galeria2.png" alt="Software">
+                <div class="info-expediente">
+                    <span class="tag-categoria">MECANICA</span>
+                    <h4>Ajuste de Motores</h4>
+                </div>
+            </div>
+            <div class="card-expediente">
+                <img src="img/galeria5.png" alt="Software">
+                <div class="info-expediente">
+                    <span class="tag-categoria">MECANICA</span>
+                    <h4>Mantenimiento</h4>
+                </div>
+            </div>
+            </div>
+
+        <button class="nav-galeria next" onclick="moverSlider(1)">❯</button>
+    </div>
+</section>
+
+    <section id="flota" class="seccion-flota">
+        <div class="contenedor-flota">
+            <div class="encabezado-flota">
+                <span class="subtitulo">Infraestructura Real</span>
+                <h2>NUESTRO <span>PODER DE RESPUESTA</span></h2>
+            </div>
+
+            <div class="grid-flota">
+                <div class="item-flota">
+                    <div class="imagen-box">
+                        <img src="https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2F40%2Fa3%2F13787f9d453ea27f6508007a4fe8%2Fyoutube-promos.jpg&w=1280&q=75" alt="Grúa de alto tonelaje">
+                    </div>
+                    <div class="info-flota">
+                        <h4>Grúas Underlift</h4>
+                        <p>Capacidad para tractocamiones cargados y autobuses.</p>
+                    </div>
+                </div>
+
+                <div class="item-flota">
+                    <div class="imagen-box">
+                        <img src="https://m.media-amazon.com/images/I/713kxD3joHL._AC_UF894,1000_QL80_.jpg" alt="Scanner Diésel">
+                    </div>
+                    <div class="info-flota">
+                        <h4>Diagnóstico Avanzado</h4>
+                        <p>Scanners multimarca para motores Cummins, Detroit y Volvo.</p>
+                    </div>
+                </div>
+
+                <div class="item-flota">
+                    <div class="imagen-box">
+                        <img src="https://sc04.alicdn.com/kf/H627516470f3a451c9773ce1e852f0b8cQ.jpg" alt="Taller Móvil">
+                    </div>
+                    <div class="info-flota">
+                        <h4>Talleres Móviles</h4>
+                        <p>Unidades equipadas con soldadura, aire y herramienta neumática.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pasos-rescate">
+        <div class="contenedor-pasos">
+            <div class="encabezado-pasos">
+                <span class="subtitulo">Protocolo de Emergencia</span>
+                <h2>¿CÓMO FUNCIONA EL <span>RESCATE?</span></h2>
+            </div>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <div class="paso-numero">01</div>
+                    <h4>Reporte</h4>
+                    <p>Contáctanos vía WhatsApp o llamada compartiendo tu ubicación GPS y tipo de falla.</p>
+                </div>
+                <div class="paso-card">
+                    <div class="paso-numero">02</div>
+                    <h4>Despacho</h4>
+                    <p>Asignamos la unidad de auxilio o grúa más cercana a tu punto de varado.</p>
+                </div>
+                <div class="paso-card">
+                    <div class="paso-numero">03</div>
+                    <h4>Solución</h4>
+                    <p>Nuestro equipo realiza la reparación técnica o el arrastre seguro a tu destino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="estatus-operativo">
+        <div class="contenedor-estatus">
+            <div class="tarjeta-estatus">
+                <div class="cabecera-estatus">
+                    <div class="punto-vivo"></div>
+                    <span>ESTATUS DEL SERVICIO EN VIVO</span>
+                </div>
+                <div class="cuerpo-estatus">
+                    <div class="dato-estatus">
+                        <h3>98%</h3>
+                        <p>Disponibilidad de Grúas</p>
+                    </div>
+                    <div class="linea-divisor"></div>
+                    <div class="dato-estatus">
+                        <h3>40 min</h3>
+                        <p>Promedio de Arribo</p>
+                    </div>
+                    <div class="linea-divisor"></div>
+                    <div class="dato-estatus">
+                        <h3>15</h3>
+                        <p>Unidades Activas</p>
+                    </div>
+                </div>
+                <div class="alerta-footer">
+                    <p>🚨 <strong>Corredor NAFTA:</strong> Operando con normalidad. Unidades disponibles en Querétaro y SLP.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pagos-seguros">
+        <div class="contenedor-pagos">
+            <div class="info-pagos">
+                <span class="tag-pago">Pagos Blindados</span>
+                <h2>ACEPTAMOS TODAS LAS <span>TARJETAS</span></h2>
+                <p>Facilitamos tu rescate con terminales móviles en todas nuestras unidades. Facturación inmediata en sitio.</p>
+            </div>
+
+            <div class="pasarela-logos">
+                <div class="card-pago">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Visa_Inc._logo_%281992–1999%29.svg/960px-Visa_Inc._logo_%281992–1999%29.svg.png" alt="Visa">
+                    <div class="brillo-pago"></div>
+                </div>
+                <div class="card-pago">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                    <div class="brillo-pago"></div>
+                </div>
+                <div class="card-pago amex">
+                    <img src="https://1000marcas.net/wp-content/uploads/2020/03/logo-American-Express.png" alt="American Express">
+                    <div class="brillo-pago"></div>
+                </div>
+                <div class="card-pago">
+                    <div class="pago-texto">TRANSFERENCIA <br><span>SPEI</span></div>
+                    <div class="brillo-pago"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="checklist-auxilio">
+        <div class="contenedor-check">
+            <div class="texto-check">
+                <h2>ANTES DE LLAMAR <br><span>TEN A LA MANO:</span></h2>
+                <ul class="lista-industrial">
+                    <li><span>1</span> Ubicación exacta o coordenadas GPS.</li>
+                    <li><span>2</span> Marca del motor y tipo de falla (Aire, Eléctrica, Mecánica).</li>
+                    <li><span>3</span> ¿El tracto viene cargado o vacío? (Para tipo de grúa).</li>
+                    <li><span>4</span> Identificación de la empresa o placas.</li>
+                </ul>
+            </div>
+            <div class="banner-ayuda">
+                <p>¿No sabes dónde estás? <br><strong>Envíanos tu ubicación por WhatsApp ahora.</strong></p>
+                <a href="https://wa.me/525545992217?text=Hola%20SisDiesel,%20estoy%20varado%20y%20necesito%20auxilio.%20Aquí%20está%20mi%20ubicación%20actual:" 
+   class="btn-gps" 
+   target="_blank">
+   COMPARTIR MI UBICACIÓN GPS
+</a>
+            </div>
+        </div>
+    </section>
+    <a href="https://wa.me/525545992217?text=Necesito%20auxilio%20vial%20para%20un%20tractocamión" class="whatsapp-float" target="_blank">
+        <span class="tooltip-wa">¿Necesitas ayuda técnica?</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <section id="marcas" class="seccion-marcas">
+    <div class="contenedor-marcas">
+        
+        <div class="encabezado-marcas">
+            <span class="subtitulo-seccion">Aliados Estratégicos</span>
+            <h2>RESPALDO DE CLASE <span>MUNDIAL</span></h2>
+        </div>
+
+        <div class="carrusel-marcas-container">
+            <div class="track-marcas">
+                
+                <div class="slide-marca">
+                    <img src="img/img12.png" alt="Cummins">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img11.png" alt="Detroit Diesel">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img3.png" alt="Kenworth">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img15.png" alt="Peterbilt">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img5.png" alt="Mack">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img14.png" alt="Volvo">
+                </div>
+
+                <div class="slide-marca">
+                    <img src="img/img7.png" alt="Cummins">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img8.png" alt="Detroit Diesel">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img9.png" alt="Kenworth">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img8.png" alt="Peterbilt">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img11.png" alt="Mack">
+                </div>
+                <div class="slide-marca">
+                    <img src="img/img12.png" alt="Volvo">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+    <section id="contacto" class="contacto-seccion">
+    <div class="contenedor-contacto">
+        
+        <div class="info-contacto">
+            <span class="tag-emergencia">Disponible Ahora</span>
+            <h2 class="titulo-contacto">¿VARADO EN LA <br><span>CARRETERA?</span></h2>
+            <p>No pierdas tiempo valioso. Nuestro equipo de respuesta rápida está listo para salir en este momento.</p>
+            
+            <div class="metodos-directos">
+                <a href="tel:525545992217" class="metodo-card">
+                    <div class="icon-box">📞</div>
+                    <div>
+                        <span>Línea Directa 24/7</span>
+                        <strong>+52 (55)45992217</strong>
+                    </div>
+
+                </a>
+       <div class="sis-consola-email">
+    <div class="sis-glow-container">
+        <div class="sis-glow-pulse"></div>
+    </div>
+    
+    <div class="sis-consola-content">
+        <div class="sis-header-consola">
+            <span class="sis-tag-urgente">PRIORIDAD: ALTA</span>
+            <div class="sis-icon-box">
+                <i class="fas fa-satellite-dish"></i>
+            </div>
+        </div>
+        
+        <div class="sis-body-consola">
+            <label class="sis-label-industrial">CANAL DE DATOS OFICIAL</label>
+            <h3 class="sis-email-display">ventas<span class="sis-at">@</span>sisdieselparts.com.mx</h3>
+            <p class="sis-desc-consola">Envío de evidencias, documentos de carga y autorizaciones de flota.</p>
+        </div>
+        
+        <div class="sis-footer-consola">
+            <a href="mailto:ventas@sisdieselparts.com.mx?subject=URGENTE: SOLICITUD DE RESCATE CARRETERO - SISDIESEL" class="sis-btn-consola">
+                <i class="fas fa-paper-plane"></i> ENVIAR DATOS AHORA
+            </a>
+        </div>
+    </div>
+</div>
+
+                
+                <a href="https://wa.me/525545992217?text=Hola%20SisDiesel,%20estoy%20varado%20en%20la%20carretera.%20Solicito%20asistencia%20inmediata." 
+                   class="metodo-card whatsapp" target="_blank">
+                    <div class="icon-box">💬</div>
+                    <div>
+                        <span>WhatsApp Rescate</span>
+                        <strong>Enviar Ubicación GPS</strong>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+
+
+        <div class="formulario-box">
+            <form id="emergency-form" action="https://formspree.io/f/tu_correo_aqui" method="POST">
+                <div class="input-group">
+                    <label>Nombre del Operador o Empresa</label>
+                    <input type="text" name="empresa" placeholder="Ej. Transportes Logísticos S.A." required>
+                </div>
+                <div class="input-group">
+                    <label>Ubicación Actual (Km / Tramo)</label>
+                    <input type="text" name="ubicacion" placeholder="Ej. Carretera 57, Km 142" required>
+                </div>
+                <div class="input-group">
+                    <label>Falla del Tractocamión</label>
+                    <textarea name="falla" placeholder="Describa brevemente el problema (ej. Falla neumática, motor sobrecalentado...)"></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">ENVIAR SOLICITUD DE AUXILIO</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+<section id="ubicacion" class="seccion-mapa">
+    <div class="contenedor-ubicacion">
+        
+        <div class="tarjeta-contacto-mapa">
+            <span class="tag-rojo">Base Operativa</span>
+            <h2>VISITA NUESTRO <br><span>CENTRO DE CONTROL</span></h2>
+            <p>Ubicados estratégicamente para el despacho inmediato de unidades a todo el país.</p>
+            
+            <div class="detalles-contacto">
+                <div class="item-contacto">
+                    <div class="icono-mapa">📍</div>
+                    <div>
+                        <strong>Dirección Base:</strong>
+                        <p>Cto Exterior Mexiquense No.129CP.54836 Méx Salida Zumpango / Teoloyucan, frente al CEDIS de HERDEZ</p>
+                    </div>
+                </div>
+                <div class="item-contacto">
+                    <div class="icono-mapa">📞</div>
+                    <div>
+                        <strong>Línea de Emergencia:</strong>
+                        <p>+52 (55)45992217</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+    <a href="https://www.google.com/maps/dir/?api=1&destination=SIS+Diesel+Tepotzotlan" 
+       target="_blank" 
+       class="btn-como-llegar">
+        <i class="fas fa-location-arrow"></i> CÓMO LLEGAR AHORA
+    </a>
+</div>
+        </div>
+
+        <div class="google-maps-frame">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3755.701382434559!2d-99.13520842426372!3d19.7525297814467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f903fb91c3dd%3A0x5e543b3238ff3d61!2sINGENIER%C3%8DA%20APLICADA%20SIS%20DI%C3%89SEL%20SA%20de%20CV!5e0!3m2!1ses-419!2smx!4v1711290000000!5m2!1ses-419!2smx"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+    </div>
+</section>
+<section id="pagos" class="seccion-pagos-premium">
+    <div class="background-glow-pagos"></div>
+    <div class="contenedor-pagos-premium">
+        
+        <div class="bloque-info-pagos">
+            <div class="status-seguridad">
+                <span class="punto-verificado"></span> VERIFICADO SSL SECURE
+            </div>
+            <h2 class="titulo-pagos-glow">LIBERACIÓN <br><span>DIGITAL DE UNIDAD</span></h2>
+            <p>Procesamiento de pagos instantáneo con cifrado militar de 256 bits. Aceptamos todas las tarjetas y transferencias para liberar tu tractocamión de inmediato.</p>
+            
+            <div class="badges-seguridad-flex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Visa_Inc._logo_%281999–2005%29.svg" alt="Verified by Visa">
+                <img src="https://1000marcas.net/wp-content/uploads/2020/03/logo-American-Express.png" alt="Mastercard ID Check">
+                <img src="https://sb-web-assets.s3.amazonaws.com/production/24/production-brand-logo--mastercard-2020-11-17-bce346ac641055d76a3b001213049eaf.png" alt="PCI DSS Compliant">
+            </div>
+        </div>
+
+        <div class="bloque-opciones-pagos">
+            
+            
+
+            <div class="tarjeta-pago-premium datos-bancarios-neon">
+                <div class="pago-header">
+                    <h4>TRANSFERENCIA INTERBANCARIA</h4>
+                    <span class="pago-icon">🏦</span>
+                </div>
+                <div class="panel-datos-spei">
+                    <div class="dato-spei-fila"><span>Banco:</span> <strong>BBVA</strong></div>
+                    <div class="dato-spei-fila"><span>CLABE:</span> <strong id="clabe-bancaria">0123 4567 8901 2345 67</strong></div>
+                    <div class="dato-spei-fila"><span>Beneficiario:</span> <strong>SISDIESELPARTS S.A DE C.V..</strong></div>
+                </div>
+                <button class="btn-copiar-spei" onclick="copiarClabeBancaria()">
+                    <span class="icono-copiar">📋</span> COPIAR CLABE DE TRANSFERENCIA
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <footer>
+        <p>&copy; 2026 SISDIESELPARTS - Auxilio Vial Pesado Profesional. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+<script>
+function enviarCotizacion() {
+    const unidad = document.getElementById('unidad').value;
+    const servicio = document.getElementById('servicio-tipo').value;
+    const telefono = "525545992217"; // CAMBIA ESTO POR TU NÚMERO
+    
+    const mensaje = `Hola SisDiesel, necesito un presupuesto. %0A*Unidad:* ${unidad} %0A*Falla:* ${servicio} %0A¿Podrían darme costos y tiempo de arribo?`;
+    
+    window.open(`https://wa.me/${telefono}?text=${mensaje}`, '_blank');
+}
+</script>
+<script>
+// Función para abrir/cerrar la pestaña
+function toggleCotizador() {
+    document.getElementById('sidebarCotizador').classList.toggle('activo');
+}
+
+// Función para enviar los datos a WhatsApp
+function enviarCotizacionLateral() {
+    const unidad = document.getElementById('unidadSide').value;
+    const servicio = document.getElementById('servicioSide').value;
+    const telefono = "525545992217"; // TU NÚMERO AQUÍ
+    
+    const mensaje = `*SOLICITUD DE PRESUPUESTO*%0A----------------------------%0A*Unidad:* ${unidad}%0A*Tipo de Servicio:* ${servicio}%0A----------------------------%0A¿Me podrían dar un costo estimado y tiempo de arribo?`;
+    
+    window.open(`https://wa.me/${telefono}?text=${mensaje}`, '_blank');
+}
+</script>
+<script>
+function copiarClabe() {
+    const clabe = "012345678901234567"; // Pon tu CLABE real aquí
+    navigator.clipboard.writeText(clabe);
+    alert("CLABE copiada al portapapeles: " + clabe);
+}
+</script>
+<script>
+function copiarClabeBancaria() {
+    const clabeRaw = document.getElementById('clabe-bancaria').innerText;
+    // Quitamos los espacios para que el banco lo acepte bien
+    const clabeLimpia = clabeRaw.replace(/\s+/g, ''); 
+    navigator.clipboard.writeText(clabeLimpia);
+    
+    // Alerta visual moderna (puedes mejorarla después)
+    alert("¡CLABE copiada exitosamente! " + clabeLimpia);
+}
+</script>
+
+<script>
+function toggleCotizador() {
+    const sidebar = document.getElementById('sidebarCotizador');
+    sidebar.classList.toggle('activo');
+}
+
+</script>
+
+<script>
+let indiceActual = 1; // Empezamos en la segunda foto (la activa)
+
+function moverSlider(direccion) {
+    const tarjetas = document.querySelectorAll('.card-expediente');
+    const total = tarjetas.length;
+
+    // Actualizar índice
+    indiceActual += direccion;
+
+    // Bucle infinito
+    if (indiceActual >= total) indiceActual = 0;
+    if (indiceActual < 0) indiceActual = total - 1;
+
+    // Quitar clase activa a todas y ponerla a la nueva
+    tarjetas.forEach((t, i) => {
+        t.classList.remove('activa');
+        if (i === indiceActual) {
+            t.classList.add('activa');
+        }
+    });
+
+    // Desplazamiento visual (Cálculo del centro)
+    const contenedor = document.getElementById('sliderSisDiesel');
+    const anchoTarjeta = tarjetas[0].offsetWidth + 40; // Ancho + Gap
+    const desplazamiento = -(indiceActual * anchoTarjeta) + (contenedor.offsetWidth / 2) - (anchoTarjeta / 2);
+    
+    contenedor.style.transform = `translateX(${desplazamiento}px)`;
+}
+
+// OPCIONAL: Avance automático cada 5 segundos
+setInterval(() => {
+    moverSlider(1);
+}, 3000);
+
+// Ejecutar una vez al cargar para centrar la primera
+window.onload = () => moverSlider(0);
+</script>
+<script>
+// --- 1. FUNCIÓN PARA EL MENÚ DE NAVEGACIÓN (INICIO, NOSOTROS...) ---
+function controlNavegacion() {
+    // Busca la lista de enlaces de tu menú. 
+    // Asegúrate que tu <ul> o <nav> tenga el id="nav-principal"
+    var menu = document.getElementById('nav-principal');
+    
+    if (menu) {
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+            menu.style.background = "#000"; // Fondo negro para que se vea
+            menu.style.position = "absolute";
+            menu.style.top = "60px";
+            menu.style.left = "0";
+            menu.style.width = "100%";
+        }
+    } else {
+        console.log("Error: No encontré el id='nav-principal'");
+    }
+}
+
+// --- 2. FUNCIÓN PARA EL PANEL AZUL (COTIZADOR) ---
+function toggleSisNow() {
+    var p = document.getElementById('sis-master-panel');
+    if (p) {
+        if (p.style.right === "0px") {
+            p.style.right = "-350px";
+        } else {
+            p.style.right = "0px";
+        }
+    }
+}
+
+// --- 3. FUNCIÓN PARA EL WHATSAPP ---
+function enviarWaExpress() {
+    var u = document.getElementById('u-final').value;
+    var s = document.getElementById('s-final').value;
+    var t = "525545992217";
+    var msj = "*SOLICITUD SISDIESEL*%0AUnidad: " + u + "%0AServicio: " + s;
+    window.open("https://wa.me/" + t + "?text=" + msj, '_blank');
+}
+</script>
+<script>
+const contadores = document.querySelectorAll('.contador');
+const velocidad = 200; // Cuanto más alto, más lento sube el número
+
+const iniciarContadores = () => {
+    contadores.forEach(contador => {
+        const actualizarContador = () => {
+            const objetivo = +contador.getAttribute('data-target');
+            const conteo = +contador.innerText;
+            const incremento = objetivo / velocidad;
+
+            if (conteo < objetivo) {
+                contador.innerText = Math.ceil(conteo + incremento);
+                setTimeout(actualizarContador, 20);
+            } else {
+                contador.innerText = objetivo + (objetivo === 30 ? " MIN" : (objetivo === 98 ? "%" : "+"));
+            }
+        };
+        actualizarContador();
+    });
+};
+
+// Detector de Scroll (Intersection Observer)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            iniciarContadores();
+            observer.unobserve(entry.target); // Solo se ejecuta una vez
+        }
+    });
+}, { threshold: 0.5 });
+
+observer.observe(document.getElementById('stats-sisdiesel'));
+</script>
+<script>
+let fallaSeleccionada = "";
+let sugerenciaTecnica = "";
+
+function seleccionarFalla(sintoma, sugerencia) {
+    fallaSeleccionada = sintoma;
+    sugerenciaTecnica = sugerencia;
+
+    // 1. Buscamos el recuadro de resultado
+    const res = document.getElementById('resultado-escaneo');
+    
+    // 2. Lo mostramos (sin mover la pantalla)
+    res.style.display = "block";
+    res.style.opacity = "0"; // Empezamos invisible para hacer un fade-in
+    
+    // 3. Llenamos los textos
+    document.getElementById('txt-diagnostico').innerText = "DIAGNÓSTICO PREVIO: " + sugerencia;
+    document.getElementById('txt-sintoma').innerText = "SÍNTOMA DETECTADO: " + sintoma;
+
+    // 4. Pequeña animación de entrada suave
+    setTimeout(() => {
+        res.style.transition = "opacity 0.5s ease";
+        res.style.opacity = "1";
+    }, 10);
+}
+
+function enviarDiagnosticoWA() {
+    const tel = "525545992217";
+    const msj = `*REPORTE DE ESCÁNER SISDIESEL*%0A` +
+                `------------------------------%0A` +
+                `🚨 *Falla:* ${fallaSeleccionada}%0A` +
+                `🛠️ *Diagnóstico Sugerido:* ${sugerenciaTecnica}%0A` +
+                `------------------------------%0A` +
+                `Solicito unidad de servicio en sitio.`;
+    
+    window.open(`https://wa.me/${tel}?text=${msj}`, '_blank');
+}
+</script>
+</body>
+
+</html>

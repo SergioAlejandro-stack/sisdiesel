@@ -1,0 +1,4257 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ajuste para que el menú no tape el título al llegar */
+#escaneo-sis {
+    scroll-margin-top: 100px; 
+}
+:root {
+    /* --- CAMBIO A PALETA SISDIESELPARTS --- */
+    --primario: #0056b3;      /* Azul fuerte del logo (Sustituye al Naranja) */
+    --secundario: #00a0df;    /* Azul claro del logo para acentos y luces */
+    --oscuro: #0a0a0a;        /* Negro profundo */
+    --gris-fondo: #151515;    /* Gris industrial */
+    --blanco: #ffffff;
+    --transicion: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    line-height: 1.6;
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.logo span { color: var(--primario); }
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li { margin: 0 20px; }
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transicion);
+}
+
+nav ul li a:hover { color: var(--primario); }
+
+.btn-presupuesto {
+    background-color: var(--primario);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* --- HERO --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=2070') center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    line-height: 1;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.btn-principal {
+    display: inline-block;
+    background-color: var(--primario);
+    color: white;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* --- SOBRE NOSOTROS --- */
+.sobre-nosotros {
+    padding: 100px 5%;
+}
+
+.contenedor-sobre {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.imagen-sobre {
+    flex: 1;
+    position: relative;
+}
+
+.imagen-sobre img {
+    width: 100%;
+    filter: grayscale(30%);
+}
+
+.experiencia-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--primario);
+    padding: 25px;
+    text-align: center;
+}
+
+.experiencia-badge .numero {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.texto-sobre { flex: 1; }
+
+.subtitulo {
+    color: var(--primario);
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 30px;
+}
+
+.stat-item h4 { color: var(--primario); font-size: 1.5rem; }
+
+/* --- SERVICIOS --- */
+.servicios {
+    padding: 100px 5%;
+    background-color: var(--gris-fondo);
+}
+
+.section-title { text-align: center; margin-bottom: 50px; }
+
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #252525;
+    padding: 40px;
+    border-bottom: 4px solid transparent;
+    transition: var(--transicion);
+}
+
+.card:hover {
+    border-bottom: 4px solid var(--primario);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    nav, .btn-presupuesto { display: none; }
+    .contenedor-sobre { flex-direction: column; }
+    .hero-content h1 { font-size: 3rem; }
+}
+/* --- SECCIÓN SERVICIOS PREMIUM --- */
+.servicios-modernos {
+    padding: 120px 5%;
+    background-color: #0a0a0a; /* Un negro más profundo */
+    background-image: radial-gradient(circle at 10% 20%, rgba(255, 94, 19, 0.05) 0%, transparent 50%);
+}
+
+.contenedor-titulos {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.subtitulo-seccion {
+    color: var(--primario);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.titulo-principal {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-top: 10px;
+}
+
+.titulo-principal span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--blanco); /* Efecto de texto hueco */
+}
+
+.grid-servicios-premium {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-servicio {
+    background: linear-gradient(145deg, #151515, #1d1d1d);
+    padding: 50px 40px;
+    position: relative;
+    border: 1px solid #222;
+    transition: var(--transicion);
+    overflow: hidden;
+}
+
+.tarjeta-servicio::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: var(--primario);
+    transform: scaleX(0);
+    transition: var(--transicion);
+    transform-origin: left;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-15px);
+    border-color: var(--primario);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.tarjeta-servicio:hover::before {
+    transform: scaleX(1);
+}
+
+.tarjeta-servicio.destacada {
+    border: 1px solid var(--primario);
+    background: linear-gradient(145deg, #1a1a1a, #222);
+}
+
+.icono-flotante {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    transition: var(--transicion);
+}
+
+.tarjeta-servicio:hover .icono-flotante {
+    color: rgba(255, 94, 19, 0.1);
+    transform: scale(1.2);
+}
+
+.contenido-servicio h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.contenido-servicio p {
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.lista-check {
+    list-style: none;
+}
+
+.lista-check li {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    color: #bbb;
+}
+
+.lista-check li::before {
+    content: '→';
+    color: var(--primario);
+    margin-right: 10px;
+    font-weight: bold;
+}
+/* --- SECCIÓN CONTACTO --- */
+.contacto-seccion {
+    padding: 100px 5%;
+    background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    position: relative;
+}
+
+.contenedor-contacto {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.tag-emergencia {
+    background: rgba(255, 94, 19, 0.1);
+    color: var(--primario);
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    border: 1px solid var(--primario);
+}
+
+.titulo-contacto {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 20px 0;
+    line-height: 1;
+}
+
+.titulo-contacto span {
+    color: var(--primario);
+}
+
+.metodos-directos {
+    margin-top: 40px;
+}
+
+.metodo-card {
+    display: flex;
+    align-items: center;
+    background: #222;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
+    border-left: 5px solid var(--primario);
+    transition: var(--transicion);
+}
+
+.metodo-card:hover {
+    background: #2a2a2a;
+    transform: translateX(10px);
+}
+
+.metodo-card.whatsapp {
+    border-left-color: #25D366;
+}
+
+.icon-box {
+    font-size: 2rem;
+    margin-right: 20px;
+}
+
+.metodo-card span {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.metodo-card strong {
+    font-size: 1.2rem;
+}
+/* --- HERO CON IMAGEN PREMIUM --- */
+.hero-imagen-premium {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    overflow: hidden;
+    /* IMAGEN DE FONDO PRINCIPAL */
+    background-image: url('img/fondo5.png');
+    background-size: cover; /* Cubre todo el espacio */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    background-color: #000; /* Fondo negro de respaldo */
+}
+
+/* Superposición de degradado para contraste (Negro a Naranja sutil) */
+.overlay-hero-imagen {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    /* Degradado oscuro para que el texto blanco resalte */
+    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(255, 94, 19, 0.15) 100%);
+    z-index: 2;
+}
+
+/* Estilo del Contenido */
+.hero-content {
+    position: relative;
+    z-index: 10; /* Por encima del overlay */
+    max-width: 800px;
+}
+
+.tag-live {
+    display: inline-block;
+    background: rgba(37, 211, 102, 0.1);
+    color: #25d366;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    border: 1px solid #25d366;
+    margin-bottom: 20px;
+    animation: glow-verde 2s infinite;
+}
+
+/* Título Industrial Impactante con efecto Stroke (Borde) */
+.titulo-industrial {
+    font-size: clamp(3.5rem, 10vw, 7rem); /* Responsive total */
+    line-height: 0.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+}
+
+.titulo-industrial span {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--primario); /* Borde naranja */
+    filter: drop-shadow(0 0 15px rgba(255, 94, 19, 0.6)); /* Brillo naranja */
+}
+
+.descripcion-hero {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 550px;
+    margin-bottom: 40px;
+    border-left: 3px solid var(--primario);
+    padding-left: 20px;
+}
+
+/* Botón con animación de Pulso (Llamativo) */
+.btn-pulso {
+    display: inline-block;
+    background-color: var(--primario);
+    color: white;
+    padding: 20px 45px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+    transition: var(--transicion);
+    box-shadow: 0 0 0 0 rgba(255, 94, 19, 0.7);
+    animation: pulso-naranja 2s infinite;
+}
+
+.btn-pulso:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* Indicador de Scroll */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px; height: 50px;
+    background: linear-gradient(to bottom, var(--primario), transparent);
+    z-index: 10;
+    animation: scroll-anim 2s infinite;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes glow-verde {
+    0% { box-shadow: 0 0 5px rgba(37, 211, 102, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(37, 211, 102, 0.2); }
+}
+
+@keyframes pulso-naranja {
+    0% { box-shadow: 0 0 0 0 rgba(255, 94, 19, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 94, 19, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 94, 19, 0); }
+}
+
+@keyframes scroll-anim {
+    0% { transform: translateY(0) translateX(-50%); opacity: 1; }
+    100% { transform: translateY(20px) translateX(-50%); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-imagen-premium { padding: 0 5%; }
+    .titulo-industrial { font-size: 3.5rem; }
+    .descripcion-hero { font-size: 1rem; }
+}
+/* --- COTIZADOR EXPRESS --- */
+.seccion-cotizador {
+    padding: 80px 5%;
+    background-color: #111;
+    border-bottom: 2px solid var(--primario);
+}
+
+.contenedor-cotizador {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.box-cotizador {
+    background: #1a1a1a;
+    padding: 40px;
+    border: 1px solid #333;
+    position: relative;
+}
+
+.box-cotizador::before {
+    content: 'QUICK QUOTE';
+    position: absolute;
+    top: -15px; right: 20px;
+    background: var(--primario);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 5px 15px;
+}
+
+.paso-cotiza {
+    margin-bottom: 25px;
+}
+
+.paso-cotiza label {
+    display: block;
+    color: var(--primario);
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.paso-cotiza select {
+    width: 100%;
+    background: #000;
+    border: 1px solid #444;
+    padding: 15px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-cotizar {
+    width: 100%;
+    background: var(--primario);
+    color: white;
+    border: none;
+    padding: 20px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cotizar:hover {
+    background: white;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .contenedor-cotizador { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* --- FORMULARIO --- */
+.formulario-box {
+    background: #151515;
+    padding: 50px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    padding: 15px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transicion);
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    border-color: var(--primario);
+    box-shadow: 0 0 10px rgba(255, 94, 19, 0.2);
+}
+
+.input-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+.btn-enviar {
+    width: 100%;
+    background: var(--primario);
+    color: white;
+    border: none;
+    padding: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.btn-enviar:hover {
+    background: #e04d00;
+    letter-spacing: 1px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #0a0a0a;
+    border-top: 1px solid #222;
+    color: #444;
+    font-size: 0.8rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .contenedor-contacto {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .titulo-contacto {
+        font-size: 2.5rem;
+    }
+    .formulario-box {
+        padding: 30px;
+    }
+}
+/* --- SECCIÓN COBERTURA MAPA (NUEVA) --- */
+.cobertura-mapa {
+    padding: 100px 5%;
+    background-color: #0d0d0d; /* Un negro ligeramente diferente para separar */
+    position: relative;
+    overflow: hidden;
+}
+
+.contenedor-cobertura {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Texto a la izquierda, mapa a la derecha */
+    gap: 50px;
+    align-items: center;
+}
+
+.titulo-cobertura .subtitulo {
+    color: var(--primario);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.titulo-cobertura h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 15px 0 25px 0;
+}
+
+.titulo-cobertura h2 span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--blanco);
+}
+
+.titulo-cobertura p {
+    color: #aaa;
+    max-width: 400px;
+}
+
+
+.mapa-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: opacity(0.6) drop-shadow(0 0 15px rgba(255,94,19,0.1));
+}
+
+/* Estilo de los Puntos y Tarjetas Flotantes */
+.punto-cobertura {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Animación de Pulso Naranja */
+.pulso {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primario);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 15px var(--primario);
+}
+
+.pulso::after {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px;
+    width: 20px; height: 20px;
+    border: 2px solid var(--primario);
+    border-radius: 50%;
+    animation: pulsar-anillo 1.5s infinite;
+    opacity: 0;
+}
+
+@keyframes pulsar-anillo {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Tarjeta Estado (Oculta por defecto, aparece al hover) */
+.tarjeta-estado {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px); /* Efecto Glassmorphism elegante */
+    padding: 15px 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 150px;
+    text-align: center;
+    opacity: 0;
+    transition: var(--transicion);
+    pointer-events: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.tarjeta-estado::after { /* Flechita de la tarjeta */
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: rgba(20, 20, 20, 0.8) transparent transparent transparent;
+}
+
+.punto-cobertura:hover .tarjeta-estado {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    border-color: var(--primario);
+    box-shadow: 0 10px 30px rgba(255,94,19,0.2);
+}
+
+.tarjeta-estado h5 {
+    color: var(--primario);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.tarjeta-estado p {
+    color: var(--blanco);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Posicionamiento de los Puntos (Ajustar según la imagen del mapa) */
+.cdmx { top: 65%; left: 58%; }
+.monterrey { top: 35%; left: 55%; }
+.guadalajara { top: 62%; left: 45%; }
+.veracruz { top: 68%; left: 66%; }
+.queretaro { top: 58%; left: 54%; }
+
+/* --- RESPONSIVE COBERTURA --- */
+@media (max-width: 900px) {
+    .contenedor-cobertura {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .titulo-cobertura p { margin: 0 auto; }
+    .tarjeta-estado { width: 120px; padding: 10px; }
+}
+/* --- CONTENEDOR DEL MAPA CSS --- */
+.mapa-css-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(255,94,19,0.05) 0%, transparent 70%);
+}
+
+.mapa-mexico-abstracto {
+    position: relative;
+    width: 500px;
+    height: 350px;
+}
+
+/* Siluetas Geométricas que sugieren el mapa */
+.forma-norte {
+    position: absolute;
+    width: 300px; height: 120px;
+    background: rgba(255,255,255,0.03);
+    clip-path: polygon(0% 0%, 100% 20%, 80% 100%, 20% 80%);
+    top: 20px; left: 30px;
+}
+
+.forma-sur {
+    position: absolute;
+    width: 250px; height: 150px;
+    background: rgba(255,255,255,0.02);
+    clip-path: polygon(20% 0%, 100% 10%, 90% 80%, 0% 100%);
+    top: 130px; left: 220px;
+}
+
+/* Líneas de la Red Logística */
+.lineas-red {
+    position: absolute;
+    width: 100%; height: 100%;
+    stroke: rgba(255, 94, 19, 0.2);
+    stroke-width: 1;
+    fill: none;
+}
+
+/* Nodos (Puntos de Auxilio) */
+.nodo {
+    position: absolute;
+    width: 12px; height: 12px;
+    background: var(--primario);
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: 0 0 15px var(--primario);
+}
+
+.nodo span {
+    position: absolute;
+    top: -25px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--primario);
+    color: white;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-radius: 2px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.nodo:hover span {
+    opacity: 1;
+    top: -35px;
+}
+
+/* Efecto de Pulso */
+.nodo::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    border: 1px solid var(--primario);
+    border-radius: 50%;
+    animation: pulsoRed 2s infinite;
+}
+
+@keyframes pulsoRed {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+/* Posiciones Geográficas Aproximadas */
+.n-tijuana { top: 40px; left: 45px; }
+.n-monterrey { top: 125px; left: 275px; }
+.n-guadalajara { top: 235px; left: 225px; }
+.n-cdmx { top: 255px; left: 295px; }
+.n-veracruz { top: 255px; left: 355px; }
+.n-merida { top: 275px; left: 445px; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .mapa-mexico-abstracto { transform: scale(0.7); }
+}
+/* --- CONTENEDOR PRINCIPAL DEL MAPA --- */
+.mapa-interactivo {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.img-mapa {
+    width: 100%;
+    display: block;
+    filter: brightness(0.5) contrast(1.2); /* Oscurece el mapa para resaltar puntos */
+}
+
+/* --- ESTILO DE LOS PUNTOS --- */
+.punto-vial {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primario);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--primario);
+    transition: transform 0.3s ease;
+}
+
+/* Animación de pulso para los puntos */
+.punto-vial::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px;
+    right: -5px; bottom: -5px;
+    border: 2px solid var(--primario);
+    border-radius: 50%;
+    animation: pulsoInfinito 1.5s infinite;
+}
+
+@keyframes pulsoInfinito {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* --- EL TRUCO: MOSTRAR EL NOMBRE AL PASAR EL CURSOR --- */
+.punto-vial::after {
+    content: attr(data-nombre); /* Toma el nombre del HTML */
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background-color: var(--primario);
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-radius: 4px;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Efecto Hover */
+.punto-vial:hover {
+    transform: scale(1.5);
+    z-index: 100;
+}
+
+.punto-vial:hover::after {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+/* --- POSICIONAMIENTO DE LOS PUNTOS (Ajustado al mapa) --- */
+.p-tijuana { top: 12%; left: 8%; }
+.p-monterrey { top: 38%; left: 52%; }
+.p-guadalajara { top: 65%; left: 45%; }
+.p-queretaro { top: 62%; left: 54%; }
+.p-cdmx { top: 70%; left: 58%; }
+.p-veracruz { top: 72%; left: 66%; }
+.p-merida { top: 74%; left: 88%; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .punto-vial::after {
+        font-size: 9px;
+        padding: 4px 8px;
+    }
+}
+/* --- SECCIÓN COBERTURA: RED DE NODOS LOGÍSTICOS (NUEVA) --- */
+.cobertura-nodos {
+    padding: 120px 5%;
+    background-color: #0d0d0d; /* Un negro más profundo */
+    background-image: radial-gradient(circle at 10% 20%, rgba(255, 94, 19, 0.05) 0%, transparent 50%);
+}
+
+.contenedor-red {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Texto a la izquierda, nodos a la derecha */
+    gap: 80px;
+    align-items: center;
+}
+
+.info-cobertura .etiqueta-red {
+    color: var(--primario);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.info-cobertura h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 15px 0 30px 0;
+}
+
+.info-cobertura h2 span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--blanco);
+}
+
+.info-cobertura p {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.glosario-nodos {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.pulso-glosario {
+    width: 10px; height: 10px;
+    background-color: var(--primario);
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+    box-shadow: 0 0 10px var(--primario);
+}
+
+/* --- PANEL DE NODOS (CUADRÍCULA DE ESTADOS) --- */
+.panel-nodos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de nodos */
+    gap: 30px;
+}
+
+.nodo-estado {
+    background: linear-gradient(145deg, #151515, #1d1d1d);
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transicion);
+    cursor: pointer;
+}
+
+.nodo-estado.destacado {
+    border-color: rgba(255, 94, 19, 0.3);
+    background: linear-gradient(145deg, #1a1a1a, #222);
+}
+
+/* Efecto Luz de Estado (Glow) */
+.luz-estado {
+    position: absolute;
+    width: 8px; height: 8px;
+    background-color: var(--primario);
+    border-radius: 50%;
+    top: 25px; right: 25px;
+    box-shadow: 0 0 15px var(--primario);
+    transition: var(--transicion);
+}
+
+.luz-estado::after {
+    content: '';
+    position: absolute;
+    top: -3px; left: -3px;
+    width: 14px; height: 14px;
+    border: 2px solid var(--primario);
+    border-radius: 50%;
+    animation: pulsoEstado 2s infinite;
+}
+
+@keyframes pulsoEstado {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Hover Effect */
+.nodo-estado:hover {
+    transform: translateY(-5px);
+    border-color: var(--primario);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.nodo-estado:hover .luz-estado {
+    box-shadow: 0 0 25px var(--primario);
+}
+
+/* Detalles del Texto */
+.detalles-estado h5 {
+    color: #666;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.detalles-estado h4 {
+    color: var(--blanco);
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    transition: var(--transicion);
+}
+
+.nodo-estado:hover h4 {
+    color: var(--primario);
+}
+
+.detalles-estado p {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* --- RESPONSIVE RED DE NODOS --- */
+@media (max-width: 900px) {
+    .contenedor-red {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .info-cobertura p { margin: 0 auto 30px auto; }
+    .glosario-nodos { justify-content: center; }
+    .panel-nodos {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    }
+}
+
+@media (max-width: 600px) {
+    .panel-nodos {
+        grid-template-columns: 1fr; /* 1 columna en móvil pequeño */
+    }
+}
+/* --- SECCIÓN FLOTA --- */
+.seccion-flota {
+    padding: 100px 5%;
+    background-color: var(--oscuro);
+}
+
+.encabezado-flota {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.encabezado-flota h2 span {
+    color: var(--primario);
+}
+
+.grid-flota {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.item-flota {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    transition: var(--transicion);
+    position: relative;
+    overflow: hidden;
+}
+
+.imagen-box {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.imagen-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: var(--transicion);
+}
+
+.item-flota:hover .imagen-box img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.info-flota {
+    padding: 25px;
+    border-top: 3px solid var(--primario);
+}
+
+.info-flota h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.info-flota p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.item-flota:hover {
+    box-shadow: 0 10px 30px rgba(255, 94, 19, 0.2);
+    border-color: var(--primario);
+}
+/* --- SECCIÓN PASOS DE RESCATE --- */
+.pasos-rescate {
+    padding: 100px 5%;
+    background-color: #0f0f0f;
+}
+
+.encabezado-pasos {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.grid-pasos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.paso-card {
+    background: #1a1a1a;
+    padding: 40px;
+    border-left: 2px solid #333;
+    transition: var(--transicion);
+    position: relative;
+}
+
+.paso-numero {
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255, 94, 19, 0.1);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.paso-card h4 {
+    color: var(--primario);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.paso-card p {
+    color: #999;
+    font-size: 0.95rem;
+}
+
+.paso-card:hover {
+    border-left-color: var(--primario);
+    background: #222;
+    transform: scale(1.05);
+}
+
+/* --- BOTÓN WHATSAPP FLOTANTE --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 2000;
+    transition: var(--transicion);
+}
+
+.whatsapp-float img {
+    width: 35px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.tooltip-wa {
+    position: absolute;
+    right: 80px;
+    background: white;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    transition: var(--transicion);
+    pointer-events: none;
+}
+
+.whatsapp-float:hover .tooltip-wa {
+    opacity: 1;
+}
+/* --- ESTATUS OPERATIVO --- */
+.estatus-operativo {
+    padding: 60px 5%;
+    background-color: #050505;
+}
+
+.tarjeta-estatus {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cabecera-estatus {
+    background: #1a1a1a;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.punto-vivo {
+    width: 10px; height: 10px;
+    background-color: #25d366;
+    border-radius: 50%;
+    margin-right: 15px;
+    animation: blink 1s infinite;
+    box-shadow: 0 0 10px #25d366;
+}
+
+@keyframes blink { 
+    0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } 
+}
+
+.cuerpo-estatus {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.dato-estatus h3 {
+    font-size: 2.5rem;
+    color: var(--primario);
+    line-height: 1;
+}
+
+.dato-estatus p { font-size: 0.8rem; color: #777; text-transform: uppercase; }
+
+.linea-divisor { width: 1px; background: #333; }
+
+.alerta-footer {
+    background: rgba(255, 94, 19, 0.1);
+    padding: 15px 25px;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+
+/* --- CHECKLIST AUXILIO --- */
+.checklist-auxilio {
+    padding: 100px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-check {
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    background: #151515;
+    padding: 50px;
+    border-right: 5px solid var(--primario);
+}
+
+.lista-industrial { list-style: none; margin-top: 30px; }
+
+.lista-industrial li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.lista-industrial li span {
+    background: var(--primario);
+    width: 30px; height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    font-weight: 900;
+}
+
+.banner-ayuda {
+    background: var(--primario);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.btn-gps {
+    margin-top: 20px;
+    padding: 15px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+}
+/* --- SECCIÓN MÉTODOS DE PAGO --- */
+.pagos-seguros {
+    padding: 80px 5%;
+    background-color: #080808;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.contenedor-pagos {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.info-pagos { flex: 1; }
+
+.tag-pago {
+    color: var(--primario);
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info-pagos h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+}
+
+.info-pagos h2 span { color: var(--primario); }
+
+.info-pagos p { color: #666; font-size: 0.95rem; max-width: 400px; }
+
+/* Pasarela de Logos */
+.pasarela-logos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card-pago {
+    background: #111;
+    border: 1px solid #333;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transicion);
+}
+
+.card-pago img {
+    max-width: 100%;
+    max-height: 40px;
+    filter: grayscale(1) brightness(1.5); /* Logos elegantes en gris/blanco */
+    transition: var(--transicion);
+    z-index: 2;
+}
+
+.card-pago.amex img { max-height: 50px; }
+
+.pago-texto {
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: #555;
+    text-align: center;
+    z-index: 2;
+}
+
+.pago-texto span { color: var(--primario); font-size: 1rem; }
+
+/* Efecto de Brillo y Hover */
+.brillo-pago {
+    position: absolute;
+    top: -100%; left: -100%;
+    width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 94, 19, 0.1), transparent);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.card-pago:hover {
+    border-color: var(--primario);
+    transform: translateY(-5px);
+    background: #151515;
+}
+
+.card-pago:hover img {
+    filter: grayscale(0) brightness(1); /* Cobran color al hover */
+}
+
+.card-pago:hover .brillo-pago {
+    top: 0; left: 0;
+}
+
+.card-pago:hover .pago-texto { color: #fff; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contenedor-pagos { flex-direction: column; text-align: center; }
+    .pasarela-logos { grid-template-columns: repeat(2, 2fr); width: 100%; }
+    .info-pagos p { margin: 0 auto; }
+}
+/* --- SECCIÓN UBICACIÓN --- */
+.seccion-mapa {
+    padding: 100px 5%;
+    background-color: #050505;
+}
+
+.contenedor-ubicacion {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 0; /* Unidos para efecto moderno */
+    background: #111;
+    border: 1px solid #222;
+    overflow: hidden;
+}
+
+.tarjeta-contacto-mapa {
+    padding: 60px;
+    background: linear-gradient(135deg, #151515 0%, #0a0a0a 100%);
+    z-index: 2;
+}
+
+.tag-rojo {
+    color: var(--primario);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+}
+
+.tarjeta-contacto-mapa h2 {
+    font-size: 2.2rem;
+    margin: 15px 0;
+    line-height: 1.1;
+}
+
+.tarjeta-contacto-mapa h2 span { color: var(--primario); }
+
+.detalles-contacto { margin: 40px 0; }
+
+.item-contacto {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.icono-mapa {
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+.item-contacto strong {
+    display: block;
+    color: var(--primario);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.item-contacto p { color: #aaa; font-size: 0.95rem; }
+
+.btn-ruta {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--primario);
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-ruta:hover {
+    background: white;
+    color: black;
+}
+
+/* --- ESTILO DEL GOOGLE MAPS --- */
+.google-maps-frame {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    filter: invert(90%) hue-rotate(180deg) brightness(0.9) contrast(1.1); /* Efecto Mapa Oscuro */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contenedor-ubicacion {
+        grid-template-columns: 1fr;
+    }
+    .tarjeta-contacto-mapa { padding: 40px 20px; }
+    .google-maps-frame { height: 350px; }
+}
+.btn-principal {
+    background-color: #25d366; /* Verde WhatsApp para identificar la acción */
+    border: 2px solid #1ebc57;
+    animation: latido 2s infinite; /* Efecto de latido para llamar la atención */
+}
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+    100% { transform: scale(1); }
+}
+/* --- COTIZADOR LATERAL FLOTANTE --- */
+.cotizador-lateral {
+    position: fixed;
+    top: 50%;
+    right: -320px; /* Escondido por defecto */
+    transform: translateY(-50%);
+    width: 320px;
+    background: #111;
+    border: 1px solid var(--primario);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    z-index: 3000;
+    transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+}
+
+.cotizador-lateral.activo {
+    right: 0; /* Se desliza hacia adentro */
+}
+
+/* La Pestaña que sobresale */
+.pestana-boton {
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primario);
+    width: 50px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -5px 0 15px rgba(255, 94, 19, 0.3);
+}
+
+.texto-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: white;
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transform: rotate(180deg);
+}
+
+.icono-calculo {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Contenido Interno */
+.contenido-lateral {
+    padding: 30px;
+    width: 100%;
+}
+
+.header-lateral h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.header-lateral span { color: var(--primario); }
+
+.header-lateral p { font-size: 0.75rem; color: #777; margin-bottom: 30px; }
+
+.campo-lateral { margin-bottom: 20px; }
+
+.campo-lateral label {
+    display: block;
+    color: var(--primario);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.campo-lateral select {
+    width: 100%;
+    background: #000;
+    border: 1px solid #333;
+    padding: 12px;
+    color: white;
+    outline: none;
+}
+
+.btn-enviar-lateral {
+    width: 100%;
+    background: var(--primario);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-enviar-lateral:hover { background: white; color: black; }
+
+.btn-cerrar {
+    background: transparent;
+    border: none;
+    color: #444;
+    font-size: 0.7rem;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-cerrar:hover { color: white; }
+/* --- SECCIÓN PAGOS ONLINE --- */
+.seccion-pagos-online {
+    padding: 100px 5%;
+    background: linear-gradient(to right, #0a0a0a, #111);
+    border-top: 1px solid #222;
+}
+
+.contenedor-pagos-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.tag-seguridad {
+    color: #25d366;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.info-seguridad-pago h2 span { color: var(--primario); }
+
+.iconos-seguridad {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* Tarjetas de Pago */
+.metodos-pago-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.opcion-pago-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.opcion-pago-card:hover { border-color: var(--primario); }
+
+.botones-pago-flex {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-pago-online {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: white;
+    border-radius: 4px;
+}
+
+.btn-pago-online.mp { background: #009ee3; } /* Azul Mercado Pago */
+.btn-pago-online.pp { background: #003087; } /* Azul PayPal */
+
+/* Estilo Tabla SPEI */
+.tabla-datos {
+    margin: 20px 0;
+    background: #000;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.dato-fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.dato-fila span { color: #666; }
+
+.btn-copiar {
+    width: 100%;
+    background: transparent;
+    border: 1px dashed var(--primario);
+    color: var(--primario);
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn-copiar:hover { background: var(--primario); color: white; }
+/* --- SECCIÓN PAGOS PREMIUM ULTRA LLAMATIVA --- */
+.seccion-pagos-premium {
+    padding: 120px 5%;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de fondo de neón sutil */
+.background-glow-pagos {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0, 158, 227, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at center, rgba(255, 94, 19, 0.05) 30%, transparent 60%);
+    animation: rotacion-glow 20s linear infinite;
+}
+
+@keyframes rotacion-glow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.contenedor-pagos-premium {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Bloque de Información (Glow Naranja) */
+.status-seguridad {
+    display: flex;
+    align-items: center;
+    color: #25d366;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.punto-verificado {
+    width: 10px; height: 10px;
+    background-color: #25d366;
+    border-radius: 50%;
+    margin-right: 12px;
+    box-shadow: 0 0 10px #25d366;
+}
+
+.titulo-pagos-glow {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.titulo-pagos-glow span {
+    color: var(--primario);
+    filter: drop-shadow(0 0 15px rgba(255, 94, 19, 0.7));
+}
+
+.bloque-info-pagos p {
+    color: #aaa;
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin-bottom: 40px;
+}
+
+.badges-seguridad-flex {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    opacity: 0.6;
+}
+
+.badges-seguridad-flex img { height: 35px; }
+
+/* Opciones de Pagos (Glow Azul) */
+.bloque-opciones-pagos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tarjeta-pago-premium {
+    background: linear-gradient(145deg, #111, #1a1a1a);
+    border: 1px solid #333;
+    padding: 40px;
+    border-radius: 4px;
+    position: relative;
+    transition: 0.4s;
+}
+
+.tarjeta-pago-premium:hover {
+    border-color: #009ee3; /* Azul Mercado Pago */
+    box-shadow: 0 10px 40px rgba(0, 158, 227, 0.2);
+    transform: translateY(-5px);
+}
+
+.pago-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pago-header h4 {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 900;
+}
+
+.pago-icon { font-size: 1.5rem; opacity: 0.5; }
+
+.botones-pago-agresivos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: white;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-checkout span { font-size: 1.1rem; opacity: 0.7; transition: 0.3s; }
+
+.btn-checkout:hover span { transform: translateX(5px); opacity: 1; }
+
+.btn-checkout.mp { background-color: #009ee3; }
+.btn-checkout.pp { background-color: #003087; }
+
+.btn-checkout.mp:hover { background-color: white; color: #009ee3; }
+.btn-checkout.pp:hover { background-color: white; color: #003087; }
+
+.logos-bancos-min {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    opacity: 0.3;
+}
+
+.logos-bancos-min img { height: 20px; }
+
+/* Estilo Tarjeta SPEI Neón Naranja */
+.datos-bancarios-neon {
+    border-color: rgba(255, 94, 19, 0.3);
+}
+
+.datos-bancarios-neon:hover {
+    border-color: var(--primario);
+    box-shadow: 0 10px 40px rgba(255, 94, 19, 0.2);
+}
+
+.panel-datos-spei {
+    background: #000;
+    padding: 25px;
+    border-radius: 4px;
+    margin: 25px 0;
+    border: 1px solid #222;
+}
+
+.dato-spei-fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.dato-spei-fila span { color: #666; }
+
+.btn-copiar-spei {
+    width: 100%;
+    background: transparent;
+    border: 2px dashed var(--primario);
+    color: var(--primario);
+    padding: 18px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-copiar-spei:hover {
+    background: var(--primario);
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 94, 19, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contenedor-pagos-premium { grid-template-columns: 1fr; text-align: center; }
+    .status-seguridad { justify-content: center; }
+    .bloque-info-pagos p { margin: 0 auto 30px auto; }
+    .badges-seguridad-flex { justify-content: center; }
+}
+
+/* --- COTIZADOR CON ACENTO AZUL --- */
+.box-cotizador::before {
+    background: var(--azul-logo); /* Usamos el azul para etiquetas informativas */
+}
+
+.paso-cotiza label {
+    color: var(--azul-claro); /* Azul claro para guiar la lectura */
+}
+
+/* --- SECCIÓN PAGOS: INTEGRACIÓN TOTAL --- */
+.titulo-pagos-glow span {
+    color: var(--azul-claro); /* Título de pago en azul para transmitir calma/seguridad */
+    filter: drop-shadow(0 0 15px rgba(0, 160, 223, 0.5));
+}
+
+.tarjeta-pago-premium:hover {
+    border-color: var(--azul-claro);
+    box-shadow: 0 10px 40px rgba(0, 160, 223, 0.2);
+}
+
+.btn-copiar-spei {
+    border: 2px dashed var(--azul-claro);
+    color: var(--azul-claro);
+}
+
+.btn-copiar-spei:hover {
+    background: var(--azul-claro);
+    color: white;
+}
+/* Cambia los pulsos y brillos a Azul */
+.pulso, .luz-estado, .punto-vial, .punto-vivo {
+    background-color: var(--secundario) !important;
+    box-shadow: 0 0 15px var(--secundario) !important;
+}
+
+.pulso::after, .luz-estado::after, .punto-vial::before {
+    border-color: var(--secundario) !important;
+}
+
+/* Cambia el borde de los títulos destacados */
+.titulo-industrial span, .titulo-principal span, .titulo-pagos-glow span {
+    -webkit-text-stroke: 1.5px var(--secundario) !important;
+    filter: drop-shadow(0 0 15px rgba(0, 160, 223, 0.5)) !important;
+}
+
+/* Ajuste del botón de WhatsApp (Este sí déjalo verde, es universal) */
+.whatsapp-float, .btn-principal {
+    background-color: #25d366 !important;
+    border: none !important;
+}
+/* --- AJUSTE DE NÚMEROS EN SERVICIOS --- */
+.icono-flotante {
+    /* Cambiamos el color base para que sea azul sutil */
+    color: rgba(0, 86, 179, 0.1) !important; 
+    transition: var(--transicion);
+}
+
+.tarjeta-servicio:hover .icono-flotante {
+    /* Al pasar el mouse, el azul se vuelve más intenso y brilla */
+    color: var(--primario) !important;
+    opacity: 0.2; /* Ajusta la transparencia a tu gusto */
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px var(--primario));
+}
+
+/* También ajustamos la barra superior de la tarjeta si la tiene */
+.tarjeta-servicio::before {
+    background: var(--primario) !important;
+}
+
+/* Y los checks de la lista interna */
+.lista-check li::before {
+    content: '→';
+    color: var(--primario) !important;
+}
+/* --- NÚMEROS EN PROTOCOLO DE EMERGENCIA --- */
+.paso-numero {
+    /* Color inicial: Azul muy sutil y transparente */
+    color: rgba(0, 160, 223, 0.1) !important; 
+    font-size: 4rem;
+    font-weight: 900;
+    transition: var(--transicion);
+}
+
+/* Efecto cuando el usuario pasa el mouse por la tarjeta */
+.paso-card:hover .paso-numero {
+    color: var(--primario) !important; /* Azul intenso */
+    opacity: 0.3;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px var(--primario)); /* Resplandor azul */
+}
+
+/* Ajuste del borde lateral y el título para que sean azules */
+.paso-card {
+    border-left: 2px solid #222; /* Borde neutro inicial */
+}
+
+.paso-card:hover {
+    border-left-color: var(--primario) !important; /* Cambia a azul al hover */
+}
+
+.paso-card h4 {
+    color: var(--primario) !important; /* Títulos en Azul SISDIESEL */
+}
+/* --- SECCIÓN COBERTURA: AJUSTE A AZUL SISDIESEL --- */
+
+/* Borde del recuadro general cuando pasas el mouse */
+.nodo-estado:hover {
+    transform: translateY(-5px);
+    border-color: var(--primario) !important; /* Azul SISDIESEL */
+    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.3) !important;
+}
+
+/* El recuadro que ya viene "Destacado" (como CDMX) */
+.nodo-estado.destacado {
+    border-color: rgba(0, 160, 223, 0.4) !important; /* Azul claro sutil */
+    background: linear-gradient(145deg, #1a1a1a, #222);
+}
+
+/* LA LUZ DE ESTADO (El punto que parpadea) */
+.luz-estado {
+    background-color: var(--secundario) !important; /* Azul cian/claro */
+    box-shadow: 0 0 15px var(--secundario) !important;
+}
+
+/* El anillo que hace el efecto de pulso */
+.luz-estado::after {
+    border: 2px solid var(--secundario) !important;
+}
+
+/* Color del nombre del Estado al hacer hover */
+.nodo-estado:hover h4 {
+    color: var(--secundario) !important;
+}
+
+/* Glosario de la red (El punto de "Disponible") */
+.pulso-glosario {
+    background-color: var(--secundario) !important;
+    box-shadow: 0 0 10px var(--secundario) !important;
+}
+/* --- ALERTA DE ESTATUS EN VIVO (AZUL) --- */
+.alerta-footer {
+    /* Fondo azul muy sutil para que el texto sea legible */
+    background: rgba(0, 160, 223, 0.1) !important; 
+    border-top: 1px solid rgba(0, 160, 223, 0.3) !important;
+    padding: 18px 25px;
+    font-size: 0.9rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* El emoji de sirena ahora resalta sobre el azul */
+.alerta-footer strong {
+    color: var(--secundario) !important; /* Azul claro del logo */
+    font-weight: 900;
+}
+
+/* Ajuste de los números de Estatus (98%, 24 min, 15) */
+.dato-estatus h3 {
+    color: var(--secundario) !important; /* Cambiamos los números grandes a azul */
+    filter: drop-shadow(0 0 10px rgba(0, 160, 223, 0.4));
+}
+
+/* La línea divisoria entre los números */
+.linea-divisor {
+    background: rgba(0, 160, 223, 0.2) !important;
+}
+/* --- SECCIÓN MÉTODOS DE PAGO: AZUL PREMIUM --- */
+
+/* La etiqueta pequeña superior */
+.tag-pago {
+    color: var(--secundario) !important; /* Azul claro del logo */
+    letter-spacing: 4px;
+}
+
+/* El span dentro del título (TARJETAS) */
+.info-pagos h2 span {
+    color: var(--primario) !important; /* Azul fuerte del logo */
+}
+
+/* --- AJUSTE DE RECUADROS (LOGOS) --- */
+.card-pago {
+    border-color: #222 !important; /* Borde neutro inicial */
+    background: #111;
+}
+
+/* Efecto cuando pasas el mouse por el logo de la tarjeta */
+.card-pago:hover {
+    border-color: var(--secundario) !important; /* Borde Azul Brillante */
+    box-shadow: 0 10px 30px rgba(0, 160, 223, 0.2) !important;
+    background: #151515;
+}
+
+/* El texto de "SPEI" o cualquier texto dentro de los cuadros */
+.pago-texto span {
+    color: var(--secundario) !important; /* Azul claro */
+}
+
+/* El efecto de brillo (glow) que atraviesa el cuadro al pasar el mouse */
+.brillo-pago {
+    background: linear-gradient(45deg, transparent, rgba(0, 160, 223, 0.1), transparent) !important;
+}
+
+/* Botón de Copiar CLABE (Si lo tienes en esta sección o en la de abajo) */
+.btn-copiar, .btn-copiar-spei {
+    border: 2px dashed var(--secundario) !important;
+    color: var(--secundario) !important;
+}
+
+.btn-copiar:hover, .btn-copiar-spei:hover {
+    background: var(--secundario) !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(0, 160, 223, 0.5) !important;
+}
+/* --- TARJETA DE TRANSFERENCIA AZUL PREMIUM --- */
+
+.tarjeta-pago-premium.datos-bancarios-neon {
+    border-color: rgba(0, 160, 223, 0.3) !important; /* Azul claro del logo */
+}
+
+.tarjeta-pago-premium.datos-bancarios-neon:hover {
+    border-color: var(--secundario) !important; /* Azul intenso al pasar el mouse */
+    box-shadow: 0 10px 40px rgba(0, 160, 223, 0.2) !important;
+}
+
+/* El fondo donde están los números (CLABE, Banco) */
+.panel-datos-spei {
+    background: #000 !important;
+    border: 1px solid rgba(0, 160, 223, 0.2) !important;
+}
+
+/* Los títulos de los datos (Banco:, CLABE:) */
+.dato-spei-fila span {
+    color: #555 !important; /* Un gris más sobrio */
+}
+
+/* Los datos reales (BBVA, Números) */
+.dato-spei-fila strong {
+    color: var(--blanco) !important;
+}
+
+/* EL BOTÓN DE COPIAR CLABE */
+.btn-copiar-spei {
+    border: 2px dashed var(--secundario) !important; /* Borde punteado azul */
+    color: var(--secundario) !important;
+}
+
+.btn-copiar-spei:hover {
+    background: var(--secundario) !important; /* Se llena de azul al hover */
+    color: white !important;
+    box-shadow: 0 0 20px rgba(0, 160, 223, 0.5) !important;
+}
+
+/* Título de la sección (LIBERACIÓN DIGITAL) */
+.titulo-pagos-glow span {
+    color: var(--secundario) !important;
+    filter: drop-shadow(0 0 15px rgba(0, 160, 223, 0.5)) !important;
+}
+.logo-img {
+    height: 50px; /* Ajusta este número según qué tan grande quieras el logo */
+    width: auto;  /* Esto mantiene las proporciones para que no se vea estirado */
+    display: block;
+    transition: var(--transicion);
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Un pequeño efecto de aumento al pasar el mouse */
+}
+
+/* Ajuste opcional para el header si el logo es muy alto */
+header {
+    padding: 10px 5%; /* Reducimos el padding vertical para que se vea más moderno */
+}
+/* --- SECCIÓN NUESTRAS MARCAS - CARRUSEL INFINITO --- */
+.seccion-marcas {
+    padding: 100px 5%;
+    background-color: #0d0d0d; /* Un negro ligeramente diferente para separar */
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.contenedor-marcas {
+    max-width: 1200px; /* Ancho máximo general */
+    margin: 0 auto;
+}
+
+.encabezado-marcas {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.encabezado-marcas h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.encabezado-marcas h2 span {
+    color: var(--primario); /* Azul SISDIESEL */
+    filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.4));
+}
+
+/* --- EL CARRUSEL MODERNO (Compacto) --- */
+.carrusel-marcas-container {
+    width: 100%;
+    max-width: 800px; /* ESTO HACE QUE NO SEA TAN ANCHO */
+    margin: 0 auto; /* Centrado */
+    height: 120px;
+    overflow: hidden; /* Oculta los logos que salen */
+    position: relative;
+    background: #111;
+    border-radius: 4px;
+    border: 1px solid #222;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+}
+
+/* Efecto de desvanecido en los bordes para un look premium */
+.carrusel-marcas-container::before,
+.carrusel-marcas-container::after {
+    content: '';
+    position: absolute;
+    top: 0; width: 100px; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carrusel-marcas-container::before {
+    left: 0;
+    background: linear-gradient(to right, #111 0%, transparent 100%);
+}
+
+.carrusel-marcas-container::after {
+    right: 0;
+    background: linear-gradient(to left, #111 0%, transparent 100%);
+}
+
+/* El Track que se mueve (Suma total de anchos de los slides) */
+.track-marcas {
+    display: flex;
+    width: calc(250px * 12); /* 250px por logo * 12 logos total */
+    animation: scroll-infinito 30s linear infinite; /* Movimiento continuo */
+}
+
+/* Cada logo individual */
+.slide-marca {
+    width: 250px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    transition: var(--transicion);
+}
+
+.slide-marca img {
+    max-width: 100%;
+    max-height: 50px;
+    object-fit: contain;
+    /* Efecto inicial: Gris y sutil */
+    filter: grayscale(1) brightness(1.5); 
+    transition: var(--transicion);
+}
+
+/* Efecto HOVER: El logo cobra color y brilla en azul */
+.slide-marca:hover img {
+    filter: grayscale(0) brightness(1); /* Cobran color original */
+    transform: scale(1.15);
+    drop-shadow: 0 0 15px rgba(0, 160, 223, 0.6); /* Brillo Azul SISDIESEL */
+}
+
+/* Pausa la animación al hover */
+.carrusel-marcas-container:hover .track-marcas {
+    animation-play-state: paused;
+}
+
+/* --- ANIMACIÓN CSS (Movimiento Infinito) --- */
+@keyframes scroll-infinito {
+    0% { transform: translateX(0); }
+    /* Se mueve la mitad exacta del track (los primeros 6 logos) */
+    100% { transform: translateX(calc(-250px * 6)); } 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .seccion-marcas { padding: 80px 5%; }
+    .carrusel-marcas-container { height: 100px; max-width: 90%; }
+    .slide-marca { width: 200px; }
+    .slide-marca img { max-height: 40px; }
+    @keyframes scroll-infinito {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-200px * 6)); } 
+    }
+}
+/* --- CÓDIGO ACTUALIZADO: LOGOS A COLOR --- */
+
+/* Cada logo individual */
+.slide-marca {
+    width: 250px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    transition: var(--transicion);
+    /* Aseguramos que el fondo del recuadro siga siendo oscuro */
+    background: #111; 
+}
+
+.slide-marca img {
+    max-width: 100%;
+    max-height: 50px;
+    object-fit: contain;
+    /* --- CAMBIO MAESTRO: QUITAMOS EL GRIS Y BRIGHTNESS --- */
+    filter: none !important; /* Muestra colores originales siempre */
+    transition: var(--transicion);
+    transform: scale(0.95); /* Ligeramente más pequeños para que el hover resalte */
+}
+
+/* Efecto HOVER: El logo brilla y resalta sobre el color original */
+.slide-marca:hover img {
+    transform: scale(1.15); /* Aumenta de tamaño */
+    /* Resplandor Azul SISDIESEL para unificar la marca */
+    filter: drop-shadow(0 0 15px rgba(0, 160, 223, 0.7)) !important; 
+}
+/* --- CARRUSEL DE MARCAS AGRANDADO --- */
+.carrusel-marcas-container {
+    width: 100%;
+    max-width: 1200px; /* ANTES: 800px | AHORA: Casi pantalla completa */
+    margin: 40px auto; 
+    height: 160px;     /* ANTES: 120px | AHORA: Más alto para logos grandes */
+    overflow: hidden;
+    position: relative;
+    background: #0a0a0a; /* Fondo más oscuro para que el color resalte */
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+
+/* Track de movimiento (Ajustado a logos más anchos) */
+.track-marcas {
+    display: flex;
+    width: calc(300px * 12); /* 300px por logo para que no se amontonen */
+    animation: scroll-infinito 25s linear infinite; /* Un poco más rápido por ser más grande */
+}
+
+/* Cada espacio de marca individual */
+.slide-marca {
+    width: 300px; /* Más espacio horizontal para cada logo */
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.slide-marca img {
+    max-width: 100%;
+    max-height: 80px; /* ANTES: 50px | AHORA: Logos un 60% más grandes */
+    object-fit: contain;
+    filter: none !important; /* Colores originales vibrantes */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.slide-marca:hover img {
+    transform: scale(1.2); /* El logo "salta" hacia adelante */
+    filter: drop-shadow(0 0 25px rgba(0, 160, 223, 0.8)) !important; /* Brillo azul más intenso */
+}
+
+/* Ajuste de la animación para el nuevo ancho */
+@keyframes scroll-infinito {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-300px * 6)); } 
+}
+
+/* Responsive para tablets y móviles */
+/* --- SOLUCIÓN BLINDADA: TEXTO SIEMPRE VISIBLE --- */
+#btnCotizadorFlotante {
+    position: fixed !important;
+    /* Separamos la barra 5px del borde para que no se moche en pantalla completa */
+    right: 5px !important; 
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    
+    background-color: var(--primario) !important;
+    
+    /* Dimensiones potentes */
+    width: 80px !important; 
+    height: 280px !important; 
+    
+    cursor: pointer !important;
+    z-index: 2147483647 !important; /* El valor máximo posible de z-index */
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    border-radius: 12px !important; /* Redondeado completo para que se vea que "flota" */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8) !important;
+    
+    /* ESTO ES CLAVE: Impedir que se oculte el contenido */
+    overflow: visible !important; 
+    transition: all 0.3s ease;
+}
+
+#btnCotizadorFlotante:hover {
+    right: 10px !important; /* Se despega un poco más al tocarlo */
+    background-color: var(--secundario) !important;
+    transform: translateY(-50%) scale(1.05) !important;
+}
+
+.texto-vertical-btn {
+    /* Forzamos que el texto sea una pieza independiente */
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    /* Centrado manual exacto */
+    transform: translate(-50%, -50%) rotate(180deg) !important;
+    
+    /* Modo de escritura */
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    
+    color: #ffffff !important; 
+    font-weight: 900 !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    white-space: nowrap !important;
+    
+    /* Sombra de texto para que resalte aún más */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    pointer-events: none;
+    display: block !important;
+}
+
+
+.grid-servicios-premium {
+    display: grid;
+    /* Esto permite que se acomoden de 4 en 4 en pantallas grandes */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    max-width: 1400px; /* Ampliamos un poco el ancho para los 4 cuadros */
+    margin: 0 auto;
+}
+/* --- SECCIÓN SERVICIOS: DISEÑO SIMÉTRICO 3x2 --- */
+.grid-servicios-premium {
+    display: grid;
+    /* Obligamos 3 columnas iguales en PC para simetría */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.tarjeta-servicio {
+    background: linear-gradient(145deg, #151515, #1d1d1d);
+    padding: 50px 40px;
+    position: relative;
+    border: 1px solid #222;
+    transition: var(--transicion);
+    overflow: hidden;
+    
+    /* MÁXIMA IMPORTANCIA: Altura uniforme para todos */
+    display: flex;
+    flex-direction: column;
+    min-height: 480px; 
+}
+
+/* El cuadro 02 (Destacado en Azul) */
+.tarjeta-servicio.destacada {
+    border: 2px solid #0056b3; /* Usamos el azul de tu logo */
+    box-shadow: 0 10px 40px rgba(0, 86, 179, 0.2);
+}
+
+/* El cuadro 05 (Un acento sutil azul) */
+.tarjeta-servicio.destacados-remanu {
+    border: 1px solid rgba(0, 160, 223, 0.3);
+}
+
+/* Títulos alineados */
+.contenido-servicio h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--blanco);
+    height: 3em; /* Espacio uniforme para títulos cortos/largos */
+    display: flex;
+    align-items: center;
+}
+
+/* Listas compactas y uniformes */
+.lista-check {
+    list-style: none;
+    margin-top: auto; /* Empuja la lista hacia abajo para alinear */
+}
+
+.lista-check li {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    color: #bbb;
+}
+
+/* Las flechas azules de la lista */
+.lista-check li::before {
+    content: '→';
+    color: #00a0df; /* Azul claro de SISDIESEL */
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+/* --- RESPONSIVE INTELIGENTE --- */
+@media (max-width: 1100px) {
+    /* En tablets/laptops, 2 columnas */
+    .grid-servicios-premium {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    /* En móviles, 1 columna */
+    .grid-servicios-premium {
+        grid-template-columns: 1fr;
+    }
+    .tarjeta-servicio {
+        min-height: auto;
+        padding: 40px 30px;
+    }
+}
+/* --- COSTILLA LATERAL REFORZADA (MÁS ANCHA) --- */
+#btnCotizadorFlotante {
+    position: fixed !important;
+    right: 0 !important; 
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background-color: var(--primario) !important;
+    
+    /* ANCHO AUMENTADO PARA PANTALLA COMPLETA */
+    width: 80px !important; 
+    height: 240px !important; 
+    
+    cursor: pointer !important;
+    z-index: 9999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Bordes más redondeados para un look moderno */
+    border-radius: 15px 0 0 15px !important;
+    
+    /* Sombra profunda para dar profundidad */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#btnCotizadorFlotante:hover {
+    width: 95px !important; /* Se expande un poco más al pasar el mouse */
+    background-color: var(--secundario) !important;
+    box-shadow: -15px 0 40px rgba(0, 160, 223, 0.4) !important;
+}
+
+.texto-vertical-btn {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: white !important;
+    font-weight: 900 !important;
+    /* Fuente más grande y legible */
+    font-size: 1.1rem !important; 
+    letter-spacing: 3px;
+    transform: rotate(180deg);
+    white-space: nowrap !important;
+    pointer-events: none;
+    text-transform: uppercase;
+    /* Centrado perfecto dentro de la costilla ancha */
+    margin-left: 5px; 
+}
+/* --- SOLUCIÓN DEFINITIVA: TEXTO VISIBLE EN PANTALLA COMPLETA --- */
+#btnCotizadorFlotante {
+    position: fixed !important;
+    right: 0 !important; 
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background-color: var(--primario) !important;
+    
+    /* Ancho robusto para que el texto respire */
+    width: 85px !important; 
+    height: 250px !important; 
+    
+    cursor: pointer !important;
+    z-index: 99999999 !important; /* Prioridad absoluta */
+    
+    /* Centrado perfecto del texto */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    border-radius: 15px 0 0 15px !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7) !important;
+    border-left: 2px solid rgba(255,255,255,0.2); /* Un borde sutil para que resalte */
+    
+    transition: all 0.4s ease-in-out;
+    overflow: visible !important; /* Permite que el texto se dibuje bien */
+}
+
+#btnCotizadorFlotante:hover {
+    width: 100px !important;
+    background-color: var(--secundario) !important;
+}
+
+.texto-vertical-btn {
+    /* MODO DE ESCRITURA VERTICAL */
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    
+    color: white !important;
+    font-weight: 900 !important;
+    font-size: 1.2rem !important; /* Tamaño grande y claro */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+    /* Centrado manual dentro de la caja azul */
+    margin: 0 auto !important;
+    padding: 0 !important;
+    
+    /* Girar para que se lea de abajo hacia arriba */
+    transform: rotate(180deg) !important; 
+    
+    white-space: nowrap !important;
+    display: block !important;
+    text-align: center !important;
+}
+/* --- RESET Y POSICIONAMIENTO FORZADO --- */
+#base-flotante-sis {
+    all: initial; /* Borra cualquier herencia de otros estilos */
+    position: fixed !important;
+    right: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    
+    /* Diseño Visual */
+    width: 80px !important;
+    height: 260px !important;
+    background-color: #0056b3 !important; /* Azul Rey */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Visibilidad */
+    z-index: 2147483647 !important;
+    cursor: pointer !important;
+    border-radius: 15px 0 0 15px !important;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.8) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#texto-vertical-sis {
+    all: initial; /* Borra cualquier herencia */
+    display: block !important;
+    
+    /* Configuración de Texto Vertical */
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    transform: rotate(180deg) !important;
+    
+    /* Estilo de Fuente */
+    color: #ffffff !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 1.1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 3px !important;
+    white-space: nowrap !important;
+    
+    /* Centrado */
+    text-align: center !important;
+    pointer-events: none !important;
+}
+
+/* --- ESTO ASEGURA QUE NO SE ESCONDA NUNCA --- */
+@media screen and (min-width: 0px) {
+    #base-flotante-sis { display: flex !important; }
+}
+/* --- DISEÑO DE LA COSTILLA LATERAL --- */
+#costilla-cotizar {
+    position: fixed !important;
+    right: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    
+    /* Dimensiones potentes para que no se moche */
+    width: 90px !important;
+    height: 280px !important;
+    background-color: #0056b3 !important; /* Azul Rey SISDIESEL */
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    z-index: 9999999 !important;
+    cursor: pointer !important;
+    border-radius: 15px 0 0 15px !important;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.6) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+#costilla-cotizar:hover {
+    width: 105px !important; /* Se expande al pasar el mouse */
+    background-color: #00a0df !important; /* Azul más claro */
+}
+
+.texto-costilla {
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    transform: rotate(180deg) !important;
+    
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    font-size: 1.2rem !important;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    white-space: nowrap !important;
+    pointer-events: none;
+}
+
+/* --- ESTILO DEL PANEL LATERAL --- */
+#panel-cotizador {
+    position: fixed !important;
+    top: 0;
+    right: -400px; /* Escondido */
+    width: 380px;
+    height: 100vh;
+    background: #111;
+    z-index: 10000000;
+    box-shadow: -15px 0 50px rgba(0,0,0,0.9);
+    transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 40px;
+    border-left: 4px solid #0056b3;
+}
+
+#panel-cotizador.activo {
+    right: 0 !important;
+}
+
+.cerrar-panel {
+    background: none;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 5px 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+/* --- GALERÍA CINEMÁTICA --- */
+.galeria-cinematica {
+    background: #050505;
+    padding: 100px 0;
+    overflow: hidden;
+}
+/* --- RESET TOTAL PARA EL PANEL --- */
+/* --- ESTO EVITA QUE EL PANEL TAPE LA PÁGINA --- */
+#sis-panel-unico {
+    position: fixed !important;
+    top: 0 !important;
+    /* IMPORTANTE: El panel empieza FUERA de la pantalla (derecha) */
+    right: -450px !important; 
+    
+    /* ANCHO CONTROLADO: No puede ser 100% ni auto */
+    width: 400px !important; 
+    height: 100vh !important;
+    
+    background: #0d0d0d !important;
+    z-index: 999999 !important; /* Un nivel alto pero controlado */
+    
+    /* Esta línea es el secreto: oculta lo que no se debe ver */
+    visibility: hidden; 
+    transition: all 0.5s ease;
+    
+    border-left: 3px solid #0056b3;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* CUANDO SE ACTIVA EL PANEL */
+#sis-panel-unico.activo {
+    right: 0 !important;
+    visibility: visible !important;
+}
+
+/* Títulos y Textos */
+.sis-titulo {
+    display: block !important;
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 900 !important;
+    margin: 0 0 10px 0 !important;
+    text-transform: uppercase !important;
+}
+
+.sis-azul { color: #0056b3 !important; }
+
+.sis-sub {
+    color: #888888 !important;
+    font-size: 14px !important;
+    margin-bottom: 40px !important;
+}
+
+/* Formulario */
+.sis-grupo { margin-bottom: 25px !important; }
+
+.sis-label {
+    display: block !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin-bottom: 12px !important;
+}
+
+.sis-select {
+    width: 100% !important;
+    padding: 15px !important;
+    background: #1a1a1a !important;
+    border: 1px solid #333 !important;
+    color: white !important;
+    border-radius: 6px !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+}
+
+/* El Botón que no se veía */
+.sis-btn-wa {
+    width: 100% !important;
+    padding: 20px !important;
+    background: #0056b3 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-weight: 900 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    margin-top: 20px !important;
+    transition: background 0.3s !important;
+}
+
+.sis-btn-wa:hover {
+    background: #007bff !important;
+}
+
+.sis-cerrar {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: #1a1a1a !important;
+    color: white !important;
+    border: 1px solid #333 !important;
+    padding: 5px 10px !important;
+    cursor: pointer !important;
+}
+
+.contenedor-titulos-galeria {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.titulo-moderno {
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 5px;
+    font-weight: 900;
+}
+
+.titulo-moderno span { color: var(--primario); }
+
+.slider-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.slider-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+/* LA TARJETA TIPO "EXPEDIENTE" */
+.card-expediente {
+    width: 350px;
+    height: 500px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    filter: grayscale(100%) brightness(0.4); /* Apagadas por defecto */
+    transform: scale(0.8);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* LA TARJETA CENTRAL (RESALTADA) */
+.card-expediente.activa {
+    width: 500px; /* Más ancha */
+    height: 600px; /* Más alta */
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1);
+    box-shadow: 0 30px 60px rgba(0, 160, 223, 0.3);
+    border: 1px solid rgba(0, 160, 223, 0.5);
+}
+
+.card-expediente img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INFORMACIÓN SOBRE LA FOTO */
+.info-expediente {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: #fff;
+}
+
+.tag-categoria {
+    background: var(--primario);
+    padding: 5px 15px;
+    font-size: 0.7rem;
+    font-weight: 900;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.info-expediente h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.info-expediente p {
+    font-size: 0.9rem;
+    color: #ccc;
+    opacity: 0; /* Solo se ve en la activa */
+    transition: 0.5s;
+}
+
+.card-expediente.activa .info-expediente p {
+    opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .card-expediente { width: 280px; height: 400px; }
+    .card-expediente.activa { width: 320px; height: 450px; }
+    .slider-container { gap: 15px; }
+}
+.nav-galeria {
+    background: rgba(0, 160, 223, 0.2);
+    border: 1px solid var(--primario);
+    color: white;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.nav-galeria:hover {
+    background: var(--primario);
+    box-shadow: 0 0 20px var(--primario);
+    transform: scale(1.1);
+}
+
+.slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.slider-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Movimiento suave */
+    will-change: transform;
+}
+/* --- CONTENEDOR ESTABLE --- */
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden; /* Esto evita que la página crezca a los lados */
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+}
+
+.slider-container {
+    display: flex;
+    gap: 30px;
+    padding: 0 10%; /* Margen de seguridad */
+    align-items: center;
+    /* Eliminamos transform: translateX para evitar el brinco de la página */
+    transition: none; 
+}
+
+.card-expediente {
+    flex: 0 0 350px; /* Tamaño fijo para que no cambie al cargar */
+    height: 450px;
+    transition: transform 0.5s ease, filter 0.5s ease; /* Solo animamos la tarjeta */
+}
+
+/* Solo la tarjeta crece, no el contenedor */
+.card-expediente.activa {
+    transform: scale(1.1);
+    filter: grayscale(0) brightness(1);
+    z-index: 5;
+}
+/* --- ESTILO FORMULARIO EXPRESS SISDIESEL --- */
+#panel-cotizador {
+    background: #0d0d0d !important; /* Negro profundo */
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.header-cotizador h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+
+.header-cotizador h3 span { color: #0056b3; }
+
+.formulario-express {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.grupo-input label {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #efefef;
+}
+
+.numero-paso {
+    color: #0056b3;
+    margin-right: 10px;
+    font-style: italic;
+}
+
+/* El Selector Elegante */
+.select-personalizado select {
+    width: 100%;
+    padding: 15px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    appearance: none; /* Quita el diseño por defecto */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.select-personalizado {
+    position: relative;
+}
+
+/* Flechita del select */
+.select-personalizado::after {
+    content: '▼';
+    font-size: 0.7rem;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0056b3;
+    pointer-events: none;
+}
+
+.select-personalizado select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 15px rgba(0, 86, 179, 0.3);
+}
+
+/* Botón Estilo SISDIESEL */
+.btn-enviar-wa {
+    width: 100%;
+    padding: 20px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.4s;
+    text-transform: uppercase;
+    margin-top: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.btn-enviar-wa:hover {
+    background: #007bff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.4);
+}
+
+.nota-seguridad {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #555;
+    margin-top: 20px;
+}
+/* --- ESTILO PANEL COTIZADOR SISDIESEL --- */
+#panel-cotizador {
+    padding: 50px 30px !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-cotizador h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+
+.header-cotizador h3 span { color: #0056b3; }
+
+.header-cotizador p { color: #666; font-size: 0.85rem; }
+
+.formulario-express {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.campo-bloque label {
+    display: block;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.indicador {
+    color: #0056b3;
+    font-style: italic;
+    margin-right: 8px;
+    border-bottom: 2px solid #0056b3;
+}
+
+/* Select Estilizado */
+.select-wrapper { position: relative; }
+
+.select-wrapper select {
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 18px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    appearance: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.select-wrapper select:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 86, 179, 0.4);
+}
+
+.select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0056b3;
+    font-size: 0.7rem;
+    pointer-events: none;
+}
+
+/* BOTÓN PREMIUM */
+.btn-whatsapp-full {
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 22px;
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.4s;
+    box-shadow: 0 10px 25px rgba(0, 86, 179, 0.3);
+    margin-top: 15px;
+}
+
+.btn-whatsapp-full:hover {
+    background: #00a0df;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 160, 223, 0.5);
+}
+
+.footer-form {
+    text-align: center;
+    margin-top: 30px;
+    opacity: 0.4;
+    font-size: 0.75rem;
+    color: white;
+
+}
+
+/* --- BOTON FLOTANTE --- */
+#nuevo-boton-lateral {
+    position: fixed !important;
+    right: -10px !important; /* Un poco metido para efecto visual */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: #0056b3 !important;
+    color: white !important;
+    padding: 25px 15px !important;
+    border-radius: 20px 0 0 20px !important;
+    cursor: pointer !important;
+    z-index: 999999 !important;
+    box-shadow: -10px 0 30px rgba(0, 86, 179, 0.5) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+#nuevo-boton-lateral:hover {
+    right: 0 !important;
+    background: #00a0df !important;
+    padding-right: 25px !important;
+}
+
+.contenido-btn {
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    transform: rotate(180deg) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+.texto-btn {
+    font-weight: 900 !important;
+    letter-spacing: 2px !important;
+    font-size: 14px !important;
+}
+
+/* --- PANEL QUE SE DESLIZA --- */
+#nuevo-panel-despacho {
+    position: fixed !important;
+    top: 0 !important;
+    right: -420px !important; /* Escondido */
+    width: 400px !important;
+    height: 100vh !important;
+    background: #0d0d0d !important;
+    border-left: 4px solid #0056b3 !important;
+    z-index: 1000000 !important;
+    padding: 50px 30px !important;
+    transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: -20px 0 60px rgba(0,0,0,0.8) !important;
+    color: white !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+#nuevo-panel-despacho.activo {
+    right: 0 !important;
+}
+
+/* --- ESTILOS INTERNOS --- */
+.header-panel h3 { font-size: 24px !important; font-weight: 900 !important; margin: 0 !important; }
+.header-panel h3 span { color: #0056b3 !important; }
+.header-panel p { color: #888 !important; font-size: 13px !important; margin-top: 5px !important; }
+
+.campo-nuevo { margin-top: 30px !important; }
+.campo-nuevo label { display: block !important; margin-bottom: 10px !important; font-weight: bold !important; }
+.campo-nuevo select, .campo-nuevo textarea {
+    width: 100% !important;
+    background: #1a1a1a !important;
+    border: 1px solid #333 !important;
+    color: white !important;
+    padding: 12px !important;
+    border-radius: 5px !important;
+}
+
+.btn-enviar-nuevo {
+    width: 100% !important;
+    background: #0056b3 !important;
+    color: white !important;
+    border: none !important;
+    padding: 20px !important;
+    margin-top: 40px !important;
+    font-weight: 900 !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+}
+
+.cerrar-panel-btn {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+}
+/* --- POSICIONAMIENTO DEL PANEL --- */
+.sis-panel-container {
+    position: fixed !important;
+    top: 0 !important;
+    right: -450px !important; /* Escondido por defecto */
+    width: 400px !important;
+    height: 100vh !important;
+    background: #0d0d0d !important;
+    z-index: 10000000 !important;
+    padding: 50px 30px !important;
+    box-sizing: border-box !important;
+    border-left: 4px solid #0056b3 !important;
+    box-shadow: -20px 0 50px rgba(0,0,0,0.9) !important;
+    transition: right 0.5s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* CLASE ACTIVA */
+.sis-panel-container.activo {
+    right: 0 !important;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 480px) {
+    .sis-panel-container {
+        width: 100% !important;
+        right: -100% !important;
+    }
+}
+/* --- ESTILOS DEL MENÚ HAMBURGUESA --- */
+.menu-hamburguesa {
+    display: none; /* Escondido en PC */
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 10000001;
+}
+
+.menu-hamburguesa span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+/* --- RESPONSIVE (Móviles y Tablets) --- */
+@media (max-width: 992px) {
+    .menu-hamburguesa {
+        display: flex; /* Aparece en móvil */
+    }
+
+    .nav-principal {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido a la derecha */
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98); /* Fondo oscuro premium */
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+        z-index: 10000000;
+    }
+
+    /* Cuando el menú está abierto */
+    .nav-principal.active {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .nav-links li a {
+        font-size: 1.8rem !important;
+        font-weight: 900 !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Animación de la Hamburguesa a X */
+    .menu-hamburguesa.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+        background-color: #0056b3;
+    }
+    .menu-hamburguesa.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-hamburguesa.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+        background-color: #0056b3;
+    }
+
+    .btn-presupuesto-header {
+        display: none; /* Ocultamos el botón grande en el header de móvil para dar espacio */
+    }
+}
+/* --- DISEÑO PREMIUM BOTÓN AUXILIO --- */
+.btn-auxilio-header {
+    position: relative;
+    background-color: #d32f2f !important; /* Rojo de emergencia industrial */
+    color: white !important;
+    padding: 12px 25px !important;
+    border-radius: 5px !important;
+    font-weight: 900 !important;
+    font-size: 0.85rem !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4) !important;
+}
+
+/* Punto de luz que parpadea */
+.luz-alerta {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    animation: parpadeo-alerta 1s infinite;
+}
+
+/* Efecto de Pulso (Glow) */
+.btn-auxilio-header:hover {
+    background-color: #b71c1c !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 25px rgba(211, 47, 47, 0.6) !important;
+}
+
+/* ANIMACIONES */
+@keyframes parpadeo-alerta {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Animación de "Respiración" para el botón completo */
+@keyframes pulso-rojo {
+    0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+}
+
+/* Aplicar pulso constante solo en el header */
+.btn-auxilio-header {
+    animation: pulso-rojo 2s infinite;
+}
+
+/* Ajuste para que no choque con el menú en móvil */
+@media (max-width: 992px) {
+    .btn-auxilio-header {
+        padding: 8px 15px !important;
+        font-size: 0.75rem !important;
+    }
+}
+/* --- DISEÑO DE TARJETA FLOTANTE ORIGINAL --- */
+#sis-wrapper-flotante {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1000000;
+    display: flex;
+    align-items: center;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Estado Cerrado: Solo se ve la pestaña */
+#sis-wrapper-flotante.sis-cerrado {
+    right: -360px; /* Esconde la tarjeta pero deja ver la pestaña */
+}
+
+/* LA PESTAÑA UNIDA */
+.sis-tab-nueva {
+    width: 50px;
+    height: 180px;
+    background: #0056b3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 12px 0 0 12px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+}
+
+.sis-texto-tab {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: white;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* LA TARJETA (BOX) */
+.sis-card-premium {
+    width: 350px;
+    background: rgba(10, 10, 10, 0.9); /* Negro traslúcido */
+    backdrop-filter: blur(15px); /* Efecto Glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 15px 15px 0;
+    padding: 40px 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    color: white;
+}
+
+.sis-mini-logo {
+    width: 60px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 5px #0056b3);
+}
+
+.sis-card-header h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.sis-card-header h3 span { color: #0056b3; }
+
+.sis-card-header p {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.sis-field { margin-top: 25px; }
+
+.sis-field label {
+    display: block;
+    font-size: 10px;
+    font-weight: 900;
+    color: #0056b3;
+    margin-bottom: 8px;
+}
+
+.sis-field select {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #333;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.sis-btn-final {
+    width: 100%;
+    margin-top: 30px;
+    padding: 18px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    font-weight: 900;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sis-btn-final:hover {
+    background: #007bff;
+    box-shadow: 0 0 20px rgba(0, 86, 179, 0.6);
+}
+
+.sis-card-footer {
+    margin-top: 30px;
+    font-size: 9px;
+    color: #444;
+    text-align: center;
+    border-top: 1px solid #222;
+    padding-top: 15px;
+}
+/* RESET DE POSICIÓN Y ESTILO */
+#sis-wrapper-flotante {
+    position: fixed !important;
+    top: 50% !important;
+    right: 0 !important; /* Empezamos pegados a la derecha */
+    transform: translateY(-50%) !important;
+    z-index: 9999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* ESTADO CERRADO: Ocultamos la caja pero dejamos ver la pestaña */
+#sis-wrapper-flotante.sis-cerrado {
+    right: -350px !important; 
+}
+
+#sis-pestana-trigger {
+    width: 50px !important;
+    height: 180px !important;
+    background: #0056b3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    border-radius: 12px 0 0 12px !important;
+}
+
+.sis-texto-tab {
+    writing-mode: vertical-rl !important;
+    transform: rotate(180deg) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    font-size: 13px !important;
+    font-family: sans-serif !important;
+}
+
+.sis-card-premium {
+    width: 350px !important;
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 30px !important;
+    border-left: 3px solid #0056b3 !important;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.8) !important;
+    font-family: sans-serif !important;
+    box-sizing: border-box !important;
+}
+/* Asegura que el menú móvil siempre esté al frente */
+#nav-menu-principal.active {
+    display: block !important;
+    z-index: 100000000 !important; /* Un cero más que el cotizador */
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #000;
+}
+/* --- ESTILOS DE LA BARRA DE NAVEGACIÓN --- */
+.sis-nav-universal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    border-bottom: 2px solid #0056b3;
+    z-index: 1000000;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.sis-nav-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+    justify-content: space-between;
+}
+
+.sis-logo-link img {
+    height: 45px;
+    width: auto;
+}
+
+.sis-menu-links {
+    display: flex;
+    gap: 20px;
+}
+
+.sis-menu-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.sis-menu-links a i {
+    font-size: 18px;
+    color: #0056b3;
+    margin-bottom: 3px;
+}
+
+/* --- AJUSTE PARA MÓVILES Y TABLETS --- */
+@media (max-width: 992px) {
+    .sis-menu-links {
+        overflow-x: auto; /* Permite deslizar los botones con el dedo */
+        white-space: nowrap;
+        padding: 10px 0;
+        gap: 25px;
+        scrollbar-width: none; /* Esconde la barra de scroll en Firefox */
+    }
+    
+    .sis-menu-links::-webkit-scrollbar {
+        display: none; /* Esconde la barra de scroll en Chrome/Safari */
+    }
+
+    .sis-menu-links a span {
+        font-size: 10px; /* Texto más pequeño para móvil */
+    }
+    
+    .sis-nav-container {
+        flex-direction: column; /* Logo arriba, menú abajo en pantallas muy chicas */
+        height: auto;
+        padding: 10px;
+    }
+    
+    .sis-nav-universal {
+        height: auto;
+    }
+}
+.falla-card:hover {
+    border-color: #0056b3 !important;
+    background: #1a1a1a !important;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.3);
+}
+
+.falla-card i {
+    transition: 0.3s;
+}
+
+.falla-card:hover i {
+    transform: scale(1.2);
+    color: #007bff !important;
+}
+#resultado-escaneo {
+    margin-top: 40px !important;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 15px 40px rgba(0, 86, 179, 0.4);
+    /* No tocamos la posición, solo el diseño */
+}
+.sis-link-resaltado i {
+    color: #007bff !important; /* Un azul más brillante */
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+}
+
+.sis-link-resaltado span {
+    color: #007bff !important;
+    font-weight: 900 !important;
+}
+
+/* Efecto de parpadeo suave tipo 'radar' */
+@keyframes pulso-sis {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.sis-link-resaltado {
+    animation: pulso-sis 2s infinite;
+}
+
+/* ESTILO DEL BOTÓN CÓMO LLEGAR */
+.btn-como-llegar {
+    display: inline-block;
+    background: #0056b3; /* Azul SISDIESEL */
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 16px;
+    padding: 15px 35px;
+    border-radius: 50px; /* Bordes redondeados tipo cápsula */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
+}
+
+.btn-como-llegar i {
+    margin-right: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* EFECTO AL PASAR EL MOUSE (HOVER) */
+.btn-como-llegar:hover {
+    background: #000;
+    color: #007bff !important;
+    border-color: #007bff;
+    transform: translateY(-5px); /* Se eleva un poco */
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.5);
+}
+
+.btn-como-llegar:hover i {
+    transform: rotate(45deg) scale(1.2); /* La flecha gira y crece */
+}
+
+/* ANIMACIÓN DE PULSO SUTIL PARA LLAMAR LA ATENCIÓN */
+@keyframes pulse-blue {
+    0% { box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 86, 179, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 86, 179, 0); }
+}
+
+.btn-como-llegar {
+    animation: pulse-blue 2.5s infinite;
+}
+/* ESTILO DE LA TARJETA DE CONTACTO */
+.tarjeta-contacto-sis {
+    background: #111;
+    border: 1px solid #222;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: 0.4s all ease;
+    max-width: 320px;
+    margin: 15px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.tarjeta-contacto-sis:hover {
+    border-color: #0056b3;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 86, 179, 0.2);
+}
+
+.icono-contacto {
+    font-size: 35px;
+    color: #0056b3;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(0, 86, 179, 0.5);
+}
+
+.label-contacto {
+    display: block;
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 2px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.dato-contacto {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    word-break: break-all; /* Para que el correo largo no se salga en móvil */
+}
+
+.btn-accion-contacto {
+    margin-top: 20px;
+    background: #1a1a1a;
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 10px 25px;
+    border: 1px solid #0056b3;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-accion-contacto:hover {
+    background: #0056b3;
+    color: white;
+}
+/* --- ESTILOS CONSOLA EMAIL PREMIUM --- */
+.sis-consola-email {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 20px auto;
+    padding: 3px; /* Espacio para el borde animado */
+    border-radius: 16px;
+    background: #000; /* Fondo base para el contraste */
+    overflow: hidden; /* Mantiene el brillo dentro */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    font-family: 'Oswald', sans-serif; /* O una fuente industrial similar */
+}
+
+/* El Borde Animado (Gradient Border Pulse) */
+.sis-consola-email::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 180deg at 50% 50%,
+        transparent 0%,
+        #0056b3 25%,
+        transparent 50%,
+        #007bff 75%,
+        transparent 100%
+    );
+    animation: sis-border-spin 4s linear infinite;
+    z-index: 1;
+}
+
+/* Animación del borde giratorio */
+@keyframes sis-border-spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* El Contenedor de Contenido (Efecto Cristal) */
+.sis-consola-content {
+    position: relative;
+    background: rgba(10, 10, 10, 0.9); /* Negro traslúcido */
+    backdrop-filter: blur(15px); /* Efecto Glassmorphism */
+    border-radius: 14px; /* Un poco menor que el contenedor padre */
+    padding: 30px;
+    z-index: 2; /* Por encima del borde animado */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Elementos Internos */
+.sis-header-consola {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.sis-tag-urgente {
+    font-size: 10px;
+    color: white;
+    background: #ff0000; /* Rojo de emergencia */
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.sis-icon-box {
+    font-size: 28px;
+    color: #0056b3;
+    text-shadow: 0 0 15px rgba(0, 86, 179, 0.8);
+}
+
+.sis-label-industrial {
+    display: block;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 3px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.sis-email-display {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    word-break: break-all;
+    border-bottom: 1px solid #222;
+    padding-bottom: 15px;
+}
+
+.sis-at { color: #0056b3; font-weight: 900; }
+
+.sis-desc-consola {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-family: sans-serif; /* Fuente de lectura para la descripción */
+}
+
+/* El Botón Premium */
+.sis-btn-consola {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 18px;
+    background: #111;
+    color: #0056b3;
+    border: 2px solid #0056b3;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0, 86, 179, 0.3);
+}
+
+/* Efecto Hover del Botón */
+.sis-btn-consola:hover {
+    background: #0056b3;
+    color: white;
+    box-shadow: 0 0 30px rgba(0, 86, 179, 0.6);
+}
+
+/* Efecto Hover de toda la consola */
+.sis-consola-email:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
